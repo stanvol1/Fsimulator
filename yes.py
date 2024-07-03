@@ -1,0 +1,95 @@
+import time
+import threading
+# adding later game variables
+coins = 0
+health = 10
+score = 0
+defence = 0
+reputation = 0
+# code for the basic health bar thing
+# hbar = True
+# adding threading for the health bar (first time, so it's going to be inefficient and the code itself is going to be awful)
+# def health_bar_thing():
+   # while hbar is True:
+       # player_input = input()
+        # here I'm just trying out a little thing to see if I can make health bars or indicators that can be checked throughout the game
+       # if player_input == "health":
+          #  print("your health is " + str(health))
+# thread = threading.Thread(target=health_bar_thing)
+# thread.start()
+# considering a print("LEVEL 0") thing here
+print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
+i = int(input("You want an item, but it might be too expensive! Put in a price here, and if your lucky, father might allow you to buy it! (please only respond with a number): "))
+if i < 10:
+    print("Father approves of the price, you can buy your item! Your score will be increased by 1")
+    print("+ 1 score!")
+    score = score + 1
+else:
+    print("Father disapproves of the price, you will be punished")
+time.sleep(2)
+print("Now you have to go out for a walk, but you don't want to. Do you A:")
+print("Complain")
+time.sleep(3)
+print("or B")
+print("go out on the walk")
+time.sleep(2)
+a = input("choose either A or B, but pick your answer wisely, or you will suffer a fate worse than death: ")
+if a == "a":
+    print("you chose wrong, you will now have to empty the dishwasher")
+    print("-2 health")
+    health = health - 2
+if a == "b":
+    print("well done! You chose correctly, a point will be added to your score")
+    score = score + 1
+time.sleep(5)
+print("finally, at the end of the day, you are lying down on the sofa, but father comes in and asks you to make dinner")
+time.sleep(2)
+v = input("you can respond with yes or no, but once again, choose your answer carefully, as this answer could seal your fate: ")
+if v == "no":
+    print("- 10 health")
+    print("You died...")
+    health = health - 10
+if v == "yes":
+    print("Well done! You passed the level, and now you may sleep...")
+    time.sleep(2)
+    score = score + 1
+    print("LEVEL UP! 0 -> 1")
+    print('Your score was ' + str(score))
+if health <= 0:
+    time.sleep(1)
+    print("You lost. Try again next time")
+    quit()
+time.sleep(3)
+# Put time.sleeps here later. This is just the basic code
+print("LEVEL 1")
+time.sleep(2)
+health = 10
+score = 0
+print("This is the first proper level. Here, you will be tested to see if you have what it takes to face the wrath of the almighty Father.")
+time.sleep(1)
+print("this time, one wrong answer subtracts 5 health instead of 2, but you get 2 points instead of 1 per correct answer. Your initial health bar will look like this ----------")
+time.sleep(1)
+print("you now also have an extra stat, defence. This stat can be boosted through armor or levels. Every level from this point onwards will increase your defence by 1")
+print("+1 defence")
+defence = defence + 1
+time.sleep(2)
+print("part 1... the garden")
+time.sleep(3)
+print("You are now going out to the garden. It needs to be worked on. The following is a recording, recovered from a spontaneous fire in Father's study")
+print("Come on, we need to weed the garden, it's an absolute mess.")
+l = input("you must respond, but what do you say, respond with A: That's ridiculous! The garden has no weeds in it. Or B: OK, let's try and weed the garden")
+if l == "A" or "a":
+    if defence >= 1:
+        health = health - 4
+        print("You chose wrong, but you have 1 defence, so you will only have 4 health subtracted. You now have 6 health.")
+        print("------")
+        print("-4 health")
+        print("Use the word *health* to check your current health")
+        print("A new person has arrived! It's the shopkeeper. In their shop, you may buy buffs, armour, temporary health boosts and much more")
+    else:
+        health = health - 5
+        print("You chose wrong! As you have no defence, 5 health was subtracted from your health bar...")
+        print("-5 health")
+        print("-----")
+if l == "b":
+    print("Well done! You picked the right answer. You will now be rewarded with 5 coins!")
