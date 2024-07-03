@@ -8,7 +8,7 @@ defence = 0
 reputation = 0
 # code for the basic health bar thing
 # hbar = True
-# adding threading for the health bar (first time, so it's going to be inefficient and the code itself is going to be awful)
+# adding threading for the health bar (first time, so it's going to be inefficient and the code itself is going to be awful) yes
 # def health_bar_thing():
    # while hbar is True:
        # player_input = input()
