@@ -84,8 +84,6 @@ if l == "A" or "a":
         print("You chose wrong, but you have 1 defence, so you will only have 4 health subtracted. You now have 6 health.")
         print("------")
         print("-4 health")
-        print("Use the word *health* to check your current health")
-        print("A new person has arrived! It's the shopkeeper. In their shop, you may buy buffs, armour, temporary health boosts and much more")
     else:
         health = health - 5
         print("You chose wrong! As you have no defence, 5 health was subtracted from your health bar...")
