@@ -9,7 +9,7 @@
 - System that does a "dice roll" after a certain number of player actions to determine whether the player will have an encounter or not.
 
 - System that acts as a shanty inventory, maybe allow 2 pieces of Armor (Head and body), 3 consumables and a weapon at any given time + 1 charm. We could use a simple array to store that data.
-- 
+
 # Ideas for parts of levels
 
 - One of those McDonald's style plastic jungle jim play areas with all sorts of weird little characters.
@@ -42,11 +42,19 @@
 
 - "Chonky-donky choco bar"
   - Effect: +3 Health
-  - Cost: 2 coin
+  - Cost: 3
 
 - "Trail mix with raisins"
   - Effect: +8 health
   - Cost: ???
+
+- "Left over lasagna"
+  - Effect: +6 health, -1 Strength
+  - Cost: ???
+
+- "Extremely minty gum"
+  - Effect: +1 health, +1 Speech
+  - Cost: 2
 
 ## Armor
 
