@@ -87,17 +87,23 @@ if l == "A" or "a":
         time.sleep(1)
         print("------")
         print("-4 health")
+        print()
         print("Because you chose wrong, you will now have to suffer through a grueling punishment")
+        print()
         print("Father has transformed into a higher type of being, able to execute punishments beyond human comprehension")
-        print("you must escape, but how? You have two options, but one is more dangerous than the other, so choose wisely:")
-        # going to add a "coin" thing with a 50/50 chance of going one way or the other. This will lead into another situation later
-        
-    else:
-        health = health - 5
-        print("You chose wrong! As you have no defence, 5 health was subtracted from your health bar...")
-        time.sleep(1)
-        print("-5 health")
-        print("-----")
+        print("you must escape, but how? You have two options, but one is more dangerous than the other: ")
+        coin = input("Choose either a or b. A: Go via the vents. B: Go via the basement")
+        if coin == "a":
+             print("You have chosen to go via the vents")
+             time.sleep(3)
+                # this will need a story added onto it. This story should lead to the school
+        elif coin == "b":
+            print("You have chosen to go via the basement")
+            time.sleep(3)
+            # this will need another story, with different situations leading to a feature that we want to implement. 
+        else:
+            print("please choose a valid answer")
+
 if l == "b":
     print("Well done! You picked the right answer. You will now be rewarded with 5 coins!")
     coins = coins + 5
