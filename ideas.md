@@ -1,6 +1,6 @@
 # Bosses
 - A level 10 boss of some type, maybe a demon father, who transformed after a freak accident
-
+- Teacher boss, at the end of the school level
 # New UI ideas (example: health, defence etc)
 
 - Maybe include basic tier character building like Fallout? I propose: Strength, Intuition, Speech and Luck as the only 4, have the player assign points at the start

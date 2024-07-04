@@ -98,12 +98,12 @@ if l == "A" or "a":
         if coin():
             print("You have to go via the vents")
             time.sleep(3)
-            # this will need a story added onto it. This story should lead to the school
+            # this will need a story added onto it. This story should lead to the school, but an item should be added to the players inventory first
         else:
             print("You have to go via the basement")
             time.sleep(3)
-            # this will need another story, with different situations leading to a feature that we want to implement. 
-
+            # this will need another story, with different situations leading to a feature that we want to implement, but a different item should be added to the players inventory first
+# before continuing, we need to add the array for the inventory
 if l == "b":
     print("Well done! You picked the right answer. You will now be rewarded with 5 coins!")
     coins = coins + 5
