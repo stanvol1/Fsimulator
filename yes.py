@@ -1,11 +1,13 @@
 import time
 import threading
+import random
 # adding later game variables
 coins = 0
 health = 10
 score = 0
 defence = 0
 reputation = 0
+# all of this could be added later, but for now it's too buggy
 # code for the basic health bar thing
 # hbar = True
 # adding threading for the health bar (first time, so it's going to be inefficient and the code itself is going to be awful) yes
@@ -85,6 +87,11 @@ if l == "A" or "a":
         time.sleep(1)
         print("------")
         print("-4 health")
+        print("Because you chose wrong, you will now have to suffer through a grueling punishment")
+        print("Father has transformed into a higher type of being, able to execute punishments beyond human comprehension")
+        print("you must escape, but how? You have two options, but one is more dangerous than the other, so choose wisely:")
+        # going to add a "coin" thing with a 50/50 chance of going one way or the other. This will lead into another situation later
+        
     else:
         health = health - 5
         print("You chose wrong! As you have no defence, 5 health was subtracted from your health bar...")
@@ -93,3 +100,4 @@ if l == "A" or "a":
         print("-----")
 if l == "b":
     print("Well done! You picked the right answer. You will now be rewarded with 5 coins!")
+    coins = coins + 5

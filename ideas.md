@@ -11,10 +11,12 @@
 
 - System that acts as a shanty inventory, maybe allow 2 pieces of Armor (Head and body), 3 consumables and a weapon at any given time + 1 charm. We could use a simple array to store that data.
 
+- a sort of "reputation" system, which can be used in clans
 # Ideas for parts of levels
 
 - One of those McDonald's style plastic jungle jim play areas with all sorts of weird little characters.
 - A school level, where you have to navigate through the social hierarchy, interacting with people as you go along. Maybe this can be level 5.
+- clans, groups you could join. They can give good rewards if your reputation among the clan itself is high enough. I don't know when we would code this, but we could store reputation in a variable. The interactivity of this could be added later. 
 # Item Ideas
 
 ## Weapons
