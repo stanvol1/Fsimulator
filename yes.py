@@ -72,7 +72,7 @@ time.sleep(1)
 print("you now also have an extra stat, defence. This stat can be boosted through armor or levels. Every level from this point onwards will increase your defence by 1")
 print("+1 defence")
 defence = defence + 1
-time.sleep(2)
+time.sleep(3)
 print("part 1... the garden")
 time.sleep(3)
 print("You are now going out to the garden. It needs to be worked on. The following is a recording, recovered from a spontaneous fire in Father's study")
@@ -82,11 +82,13 @@ if l == "A" or "a":
     if defence >= 1:
         health = health - 4
         print("You chose wrong, but you have 1 defence, so you will only have 4 health subtracted. You now have 6 health.")
+        time.sleep(1)
         print("------")
         print("-4 health")
     else:
         health = health - 5
         print("You chose wrong! As you have no defence, 5 health was subtracted from your health bar...")
+        time.sleep(1)
         print("-5 health")
         print("-----")
 if l == "b":
