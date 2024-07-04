@@ -1,11 +1,13 @@
 import time
 import threading
+import random
 # adding later game variables
 coins = 0
 health = 10
 score = 0
 defence = 0
 reputation = 0
+# all of this could be added later, but for now it's too buggy
 # code for the basic health bar thing
 # hbar = True
 # adding threading for the health bar (first time, so it's going to be inefficient and the code itself is going to be awful) yes
@@ -72,7 +74,7 @@ time.sleep(1)
 print("you now also have an extra stat, defence. This stat can be boosted through armor or levels. Every level from this point onwards will increase your defence by 1")
 print("+1 defence")
 defence = defence + 1
-time.sleep(2)
+time.sleep(3)
 print("part 1... the garden")
 time.sleep(3)
 print("You are now going out to the garden. It needs to be worked on. The following is a recording, recovered from a spontaneous fire in Father's study")
@@ -82,14 +84,20 @@ if l == "A" or "a":
     if defence >= 1:
         health = health - 4
         print("You chose wrong, but you have 1 defence, so you will only have 4 health subtracted. You now have 6 health.")
+        time.sleep(1)
         print("------")
         print("-4 health")
-        print("Use the word *health* to check your current health")
-        print("A new person has arrived! It's the shopkeeper. In their shop, you may buy buffs, armour, temporary health boosts and much more")
+        print("Because you chose wrong, you will now have to suffer through a grueling punishment")
+        print("Father has transformed into a higher type of being, able to execute punishments beyond human comprehension")
+        print("you must escape, but how? You have two options, but one is more dangerous than the other, so choose wisely:")
+        # going to add a "coin" thing with a 50/50 chance of going one way or the other. This will lead into another situation later
+        
     else:
         health = health - 5
         print("You chose wrong! As you have no defence, 5 health was subtracted from your health bar...")
+        time.sleep(1)
         print("-5 health")
         print("-----")
 if l == "b":
     print("Well done! You picked the right answer. You will now be rewarded with 5 coins!")
+    coins = coins + 5
