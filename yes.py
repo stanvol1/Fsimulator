@@ -34,7 +34,6 @@ while not check:
         check = True
     else:
         print("Input value must be an integer")
-# the last piece of code could break the entire program, we need an alternative such as try except
 if int(i) < 10:
     print("Father approves of the price, you can buy your item! Your score will be increased by 1")
     print("+ 1 score!")
@@ -104,6 +103,7 @@ if l == "A" or "a":
         print("Because you chose wrong, you will now have to suffer through a grueling punishment")
         print()
         print("Father has transformed into a higher type of being, able to execute punishments beyond human comprehension")
+        print()
         print("you must escape, but how? there are two possibilities, but one is more dangerous than the other, but you must be quick, as Father is getting closer. You toss a coin. There is a 50/50 chance of each one: ")
         # This needs to be cleaned up a huge amount
         def coin():
@@ -117,6 +117,7 @@ if l == "A" or "a":
             print("You now must go via the basement")
             time.sleep(3)
             print()
+            print("-this is creepy-, you think. You begin to hear voices...")
             # this will need another story, with different situations leading to a feature that we want to implement, but a different item should be added to the players inventory first
 # before continuing, we need to add the array for the inventory
 if l.lower() == "b":
