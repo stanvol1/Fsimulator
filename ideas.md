@@ -108,7 +108,9 @@
   - Cost: 2
 
 - "Unicorn sticker bandaids"
-  - Effect: +2 health
+  - Effect: +2 health per turn
+  - Duration: 3 turns
+  - Cost: ???
 
 ## Armor
 
