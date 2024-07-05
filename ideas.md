@@ -31,6 +31,7 @@
 
   - Speech:
     - Idk tbh, maybe  offer pacifist options in some fights?
+    - we could give better options to players with higher speech
 
 - UI print out that specifies the temporary and non temporary buffs you have from items.
 
@@ -133,7 +134,7 @@
 - "Padded Labor Jumpsuit"
   - Defense: 10
   - Effect: -1 Speech, +1 Strength
-  - Cost: ???
+  - Cost: 3
 
 ## Charms
 
@@ -147,5 +148,5 @@
 
 - "Motivational poster"
   - Effect: +2 Strength, -1 Speech
-  - Cost: ???
+  - Cost: 2
 

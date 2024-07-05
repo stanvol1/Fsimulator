@@ -7,6 +7,12 @@ health = 10
 score = 0
 defence = 0
 reputation = 0
+# adding empty arrays
+inventory = [""]
+heavy = [""]
+light = [""]
+consumables = [""]
+armour = [""]
 # all of this could be added later, but for now it's too buggy
 # code for the basic health bar thing
 # hbar = True
@@ -22,6 +28,7 @@ reputation = 0
 # considering a print("LEVEL 0") thing here
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
 i = int(input("You want an item, but it might be too expensive! Put in a price here, and if your lucky, father might allow you to buy it! (please only respond with a number): "))
+# the last piece of code could break the entire program, we need an alternative such as try except
 if i < 10:
     print("Father approves of the price, you can buy your item! Your score will be increased by 1")
     print("+ 1 score!")
