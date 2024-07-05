@@ -36,11 +36,11 @@ print("or B")
 print("go out on the walk")
 time.sleep(2)
 a = input("choose either A or B, but pick your answer wisely, or you will suffer a fate worse than death: ")
-if a == "a":
+if a.lower() == "a":
     print("you chose wrong, you will now have to empty the dishwasher")
     print("-2 health")
     health = health - 2
-if a == "b":
+if a.lower() == "b":
     print("well done! You chose correctly, a point will be added to your score")
     score = score + 1
 time.sleep(5)
@@ -62,7 +62,7 @@ if health <= 0:
     print("You lost. Try again next time")
     quit()
 time.sleep(3)
-# Put time.sleeps here later. This is just the basic code
+# Put time.sleeps here later. This is just the basic code, it needs to be cleaned up
 print("LEVEL 1")
 time.sleep(2)
 health = 10
@@ -91,19 +91,21 @@ if l == "A" or "a":
         print("Because you chose wrong, you will now have to suffer through a grueling punishment")
         print()
         print("Father has transformed into a higher type of being, able to execute punishments beyond human comprehension")
-        print("you must escape, but how? there are two possibilities, but one is more dangerous than the other. There is a 50/50 chance of each one: ")
+        print("you must escape, but how? there are two possibilities, but one is more dangerous than the other, but you must be quick, as Father is getting closer. You toss a coin. There is a 50/50 chance of each one: ")
         # This needs to be cleaned up a huge amount
         def coin():
             return random.random() < .5
         if coin():
-            print("You have to go via the vents")
+            print("You now must go via the vents")
             time.sleep(3)
+            print("You crawl through the vents, but as you go through them, you hear a sound...")
             # this will need a story added onto it. This story should lead to the school, but an item should be added to the players inventory first
         else:
-            print("You have to go via the basement")
+            print("You now must go via the basement")
             time.sleep(3)
+            print()
             # this will need another story, with different situations leading to a feature that we want to implement, but a different item should be added to the players inventory first
 # before continuing, we need to add the array for the inventory
-if l == "b":
+if l.lower() == "b":
     print("Well done! You picked the right answer. You will now be rewarded with 5 coins!")
     coins = coins + 5
