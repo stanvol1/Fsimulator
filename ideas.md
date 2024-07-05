@@ -3,6 +3,8 @@
 - Teacher boss, at the end of the school level
 # New UI ideas (example: health, defence etc)
 
+- inventory array including keys and quest items, not able to be sold
+
 - Maybe include basic tier character building like Fallout? I propose: Strength, Intuition, Speech and Luck as the only 4, have the player assign points at the start
   - Maybe add collectibles that increase said stats? (charms)
   - Include (special) actions that require a minimum stat requirement
