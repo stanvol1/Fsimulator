@@ -81,8 +81,7 @@
 - "Safety Scissors": (heavy)
   - Damage: 6
   - Uses: 6
-  - Cost: 2 *(this price feels way too low for a weapon with this much damage)*
-
+  - Cost: 7 
 
 
 ## Consumables
