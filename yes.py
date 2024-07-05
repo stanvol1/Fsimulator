@@ -20,7 +20,7 @@ reputation = 0
 # thread = threading.Thread(target=health_bar_thing)
 # thread.start()
 # considering a print("LEVEL 0") thing here
-# clean up this piece of cod
+# clean up this piece of code
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
 i = int(input("You want an item, but it might be too expensive! Put in a price here, and if your lucky, father might allow you to buy it! (please only respond with a number): "))
 if i < 10:
