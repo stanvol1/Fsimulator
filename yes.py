@@ -1,16 +1,19 @@
 import time
 import threading
 import random
-# Traits
+# general vars
 coins = 0
 health = 10
 score = 0
-defence = 0
 reputation = 0
+
+
+#Traits
 strength = 0
 intuition = 0
 Speech = 0
 Luck = 0
+defence = 0
 
 
 
@@ -35,6 +38,7 @@ armour = [""]
 # considering a print("LEVEL 0") thing here
 # clean up this piece of cod
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
+
 
 check = False 
 
@@ -154,7 +158,6 @@ if l == "A" or "a":
             time.sleep(3)
             print("To open the vent you could either: [pry] - Pry the vent cover open with your hands (min strength: 4), [brute] - Brute force the vent cover open (-2 health, no requirement)")
             prybash = input("Please pick: ")
-
             match prybash:
                 case "pry":
                     if strength >= 4:
@@ -165,8 +168,7 @@ if l == "A" or "a":
                         health = health - 2
                 case "brute":
                     print()
-
-                
+                    
             # Under construction, have to incorporate player stats first
 
 
