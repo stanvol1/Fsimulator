@@ -112,8 +112,16 @@ if l == "A" or "a":
         if coin():
             print("You now must go via the vents")
             time.sleep(3)
-            print("You crawl through the vents, but as you go through them, you hear a sound...")
-            # this will need a story added onto it. This story should lead to the school, but an item should be added to the players inventory first
+            print("It is a treacherous journey, and for this reason, you have been granted the motivational poster!")
+            inventory.append("Motivational Poster")
+            for l in inventory:
+                print(l)
+            print("+ 2 strength")
+            print("-1 speech")
+            # this will need a story added onto it. This story should lead to the school.
+            print("After many long hours of crawling through the vents, you begin to see light...")
+            print()
+
         else:
             print("You now must go via the basement")
             time.sleep(3)
