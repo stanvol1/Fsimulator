@@ -1,18 +1,19 @@
 import time
 import threading
 import random
-# adding later game variables
+# general vars
 coins = 0
 health = 10
 score = 0
-defence = 0
 reputation = 0
+
 
 #Traits
 strength = 0
 intuition = 0
 Speech = 0
 Luck = 0
+defence = 0
 
 
 
@@ -38,7 +39,8 @@ armour = [""]
 # clean up this piece of cod
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
 
-check = False # What is this here for??
+
+check = False 
 
 while not check:
     i = input("You want an item, but it might be too expensive! Put in a price here, and if your lucky, father might allow you to buy it! (please only respond with a number): ")
@@ -140,13 +142,15 @@ if l == "A" or "a":
             return random.random() < .5
         if coin():
             print("You now must go via the vents")
-            time.sleep(3)
+            time.sleep(2)
             print("It is a treacherous journey, and for this reason, you have been granted the motivational poster!")
             inventory.append("Motivational Poster")
             for l in inventory:
                 print(l)
             print("+ 2 strength")
             print("-1 speech")
+            Speech = Speech - 1
+            strength = strength + 2
             # this will need a story added onto it. This story should lead to the school.
             print("After many long hours of crawling through the vents, you begin to see light...")
             time.sleep(3)
@@ -154,9 +158,17 @@ if l == "A" or "a":
             time.sleep(3)
             print("To open the vent you could either: [pry] - Pry the vent cover open with your hands (min strength: 4), [brute] - Brute force the vent cover open (-2 health, no requirement)")
             prybash = input("Please pick: ")
-
-            match(prybash, )
-
+            match prybash:
+                case "pry":
+                    if strength >= 4:
+                        print("You pried open the vent cover!")
+                    elif strength < 4:
+                        print("You must have 4 or more health to do that! You had to brute force the cover")
+                        print("-2 health!")
+                        health = health - 2
+                case "brute":
+                    print()
+                    
             # Under construction, have to incorporate player stats first
 
 
