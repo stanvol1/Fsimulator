@@ -33,6 +33,7 @@
 
   - Speech:
     - Idk tbh, maybe  offer pacifist options in some fights?
+    - we could give better options to players with higher speech
 
 - UI print out that specifies the temporary and non temporary buffs you have from items.
 
@@ -83,8 +84,7 @@
 - "Safety Scissors": (heavy)
   - Damage: 6
   - Uses: 6
-  - Cost: 2 *(this price feels way too low for a weapon with this much damage)*
-
+  - Cost: 7 
 
 
 ## Consumables
@@ -110,7 +110,9 @@
   - Cost: 2
 
 - "Unicorn sticker bandaids"
-  - Effect: +2 health
+  - Effect: +2 health per turn
+  - Duration: 3 turns
+  - Cost: ???
 
 ## Armor
 
@@ -136,7 +138,7 @@
 - "Padded Labor Jumpsuit"
   - Defense: 10
   - Effect: -1 Speech, +1 Strength
-  - Cost: ???
+  - Cost: 3
 
 ## Charms
 
@@ -151,4 +153,5 @@
 - "Motivational poster"
   - Effect: +2 Strength, -1 Speech
   - Cost: given in the vents
+
 

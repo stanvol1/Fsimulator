@@ -121,6 +121,7 @@ if l == "A" or "a":
             # this will need a story added onto it. This story should lead to the school.
             print("After many long hours of crawling through the vents, you begin to see light...")
             print()
+
         else:
             print("You now must go via the basement")
             time.sleep(3)
