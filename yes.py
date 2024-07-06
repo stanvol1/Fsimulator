@@ -1,12 +1,19 @@
 import time
 import threading
 import random
-# adding later game variables
+# Traits
 coins = 0
 health = 10
 score = 0
 defence = 0
 reputation = 0
+strength = 0
+intuition = 0
+Speech = 0
+Luck = 0
+
+
+
 # adding empty arrays
 inventory = [""]
 heavy = [""]
@@ -28,7 +35,9 @@ armour = [""]
 # considering a print("LEVEL 0") thing here
 # clean up this piece of cod
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
-check = False
+
+check = False 
+
 while not check:
     i = input("You want an item, but it might be too expensive! Put in a price here, and if your lucky, father might allow you to buy it! (please only respond with a number): ")
     if i in "123456789":
@@ -41,45 +50,63 @@ if int(i) < 10:
     score = score + 1
 else:
     print("Father disapproves of the price, you will be punished")
+
 time.sleep(2)
+
 print("Now you have to go out for a walk, but you don't want to. Do you A:")
 print("Complain")
+
 time.sleep(3)
+
 print("or B")
 print("go out on the walk")
+
 time.sleep(2)
+
 a = input("choose either A or B, but pick your answer wisely, or you will suffer a fate worse than death: ")
+
 if a.lower() == "a":
     print("you chose wrong, you will now have to empty the dishwasher")
     print("-2 health")
     health = health - 2
+
 if a.lower() == "b":
     print("well done! You chose correctly, a point will be added to your score")
     score = score + 1
+
 time.sleep(5)
+
 print("finally, at the end of the day, you are lying down on the sofa, but father comes in and asks you to make dinner")
+
 time.sleep(2)
+
 v = input("you can respond with yes or no, but once again, choose your answer carefully, as this answer could seal your fate: ")
 if v == "no":
     print("- 10 health")
     print("You died...")
     health = health - 10
+
 if v == "yes":
     print("Well done! You passed the level, and now you may sleep...")
     time.sleep(2)
     score = score + 1
     print("LEVEL UP! 0 -> 1")
     print('Your score was ' + str(score))
+
 if health <= 0:
     time.sleep(1)
     print("You lost. Try again next time")
     quit()
+
 time.sleep(3)
-# Put time.sleeps here later. This is just the basic code, it needs to be cleaned up
+
 print("LEVEL 1")
+
 time.sleep(2)
+
 health = 10
 score = 0
+
 print("This is the first proper level. Here, you will be tested to see if you have what it takes to face the wrath of the almighty Father.")
 time.sleep(1)
 print("this time, one wrong answer subtracts 5 health instead of 2, but you get 2 points instead of 1 per correct answer. Your initial health bar will look like this ----------")
@@ -111,16 +138,37 @@ if l == "A" or "a":
             return random.random() < .5
         if coin():
             print("You now must go via the vents")
-            time.sleep(3)
+            time.sleep(2)
             print("It is a treacherous journey, and for this reason, you have been granted the motivational poster!")
             inventory.append("Motivational Poster")
             for l in inventory:
                 print(l)
             print("+ 2 strength")
             print("-1 speech")
+            Speech = Speech - 1
+            strength = strength + 2
             # this will need a story added onto it. This story should lead to the school.
             print("After many long hours of crawling through the vents, you begin to see light...")
-            print()
+            time.sleep(3)
+            print("You see a mesh vent leading into a dull room at ground level...")
+            time.sleep(3)
+            print("To open the vent you could either: [pry] - Pry the vent cover open with your hands (min strength: 4), [brute] - Brute force the vent cover open (-2 health, no requirement)")
+            prybash = input("Please pick: ")
+
+            match prybash:
+                case "pry":
+                    if strength >= 4:
+                        print("You pried open the vent cover!")
+                    elif strength < 4:
+                        print("You must have 4 or more health to do that! You had to brute force the cover")
+                        print("-2 health!")
+                        health = health - 2
+                case "brute":
+                    print()
+
+                
+            # Under construction, have to incorporate player stats first
+
 
         else:
             print("You now must go via the basement")
