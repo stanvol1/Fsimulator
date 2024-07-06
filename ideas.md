@@ -150,5 +150,5 @@
 
 - "Motivational poster"
   - Effect: +2 Strength, -1 Speech
-  - Cost: ???
+  - Cost: given in the vents
 
