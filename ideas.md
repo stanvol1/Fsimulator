@@ -50,7 +50,7 @@
 ### Light
 
 - "Concerningly sharp paper airplane": (light)
-  - Damage: 3
+  - Damage: 1
   - Uses: 3
   - Cost: found at school (later thing)
 
@@ -70,21 +70,25 @@
   - Cost: ???
 
 - "CD ninja star": (light)
-  - Damage: 4
-  - Uses: 3
+  - Damage: 3
+  - Uses: 4
   - Cost: ???
 
 ### Heavy
 
 - "Scuffed Badminton Racket": (heavy)
-  - Damage: 7
+  - Damage: 9
   - Uses: 5
   - Cost: found in-game
 
 - "Safety Scissors": (heavy)
   - Damage: 6
   - Uses: 6
-  - Cost: 7 
+  - Cost: 7
+
+- "Another brick from the wall"
+  - Damage: 15
+  - Uses: 
 
 
 ## Consumables
