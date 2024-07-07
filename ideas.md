@@ -25,8 +25,8 @@
     - +1 heavy damage
 
   - Luck:
-    - +5% dodge (base chance = 5%)
-    - +15% coin
+    - +6% dodge (base chance = 5%)
+    - +1 max coin per room
   
   - Intuition:
     - +1 light damage
@@ -34,6 +34,8 @@
   - Speech:
     - Idk tbh, maybe  offer pacifist options in some fights?
     - we could give better options to players with higher speech
+  
+- In the base character creator, the max value that any given stat can have is 5, but items acquired can increase any given stat at 5 over the limit.
 
 - UI print out that specifies the temporary and non temporary buffs you have from items.
 

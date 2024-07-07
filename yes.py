@@ -172,10 +172,9 @@ if l == "A" or "a":
                         print("-2 health!")
                         health = health - 2
                         break
+            # after loop you go back here
                     
             # Under construction, have to incorporate player stats first
-
-
         else:
             print("You now must go via the basement")
             time.sleep(3)
