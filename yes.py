@@ -10,7 +10,6 @@ reputation = 0
 
 #Traits
 strength = 0
-intuition = 0
 speech = 0
 luck = 0
 defence = 0
