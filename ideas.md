@@ -25,8 +25,8 @@
     - +1 heavy damage
 
   - Luck:
-    - +3% dodge (base chance = 5%)
-    - +5% coin
+    - +5% dodge (base chance = 5%)
+    - +15% coin
   
   - Intuition:
     - +1 light damage

@@ -11,8 +11,8 @@ reputation = 0
 #Traits
 strength = 0
 intuition = 0
-Speech = 0
-Luck = 0
+speech = 0
+luck = 0
 defence = 0
 
 
@@ -158,16 +158,20 @@ if l == "A" or "a":
             time.sleep(3)
             print("To open the vent you could either: [pry] - Pry the vent cover open with your hands (min strength: 4), [brute] - Brute force the vent cover open (-2 health, no requirement)")
             prybash = input("Please pick: ")
-            match prybash:
-                case "pry":
-                    if strength >= 4:
-                        print("You pried open the vent cover!")
-                    elif strength < 4:
-                        print("You must have 4 or more health to do that! You had to brute force the cover")
+
+            while True:
+                match prybash:
+                    case "pry":
+                        if strength >= 4:
+                            print("You pried open the vent cover!")
+                            break
+                        elif strength < 4:
+                            print("You must have 4 or more strength to do that!")
+                    case "brute":
+                        print("You put your body weight into it and bash open the vent cover, your ribs ache a bit.")
                         print("-2 health!")
                         health = health - 2
-                case "brute":
-                    print()
+                        break
                     
             # Under construction, have to incorporate player stats first
 
