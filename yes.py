@@ -15,7 +15,16 @@ luck = 0
 defence = 0
 
 #Character creator
-
+print("Time to create your very own character!")
+time.sleep(3)
+print("What will your name be?")
+time.sleep(2)
+name = input("Enter name:")
+time.sleep(2)
+print("Great, now time to pick your stats!")
+time.sleep(2)
+print("You ")
+time.sleep(2)
 
 
 # adding empty arrays
