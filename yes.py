@@ -136,11 +136,10 @@ if l == "A" or "a":
         print()
         print("Father has transformed into a higher type of being, able to execute punishments beyond human comprehension")
         print()
-        print("you must escape, but how? there are two possibilities, but one is more dangerous than the other, but you must be quick, as Father is getting closer. You toss a coin. There is a 50/50 chance of each one: ")
+        print("you must escape, but how? there are two possibilities, but one is more dangerous than the other, but you must be quick, as Father is getting closer. ")
         # This needs to be cleaned up a huge amount
-        def coin():
-            return random.random() < .5
-        if coin():
+        choice = input("you can escape via the [b]asement or the [v]ents")
+        if choice.lower == "v":
             print("You now must go via the vents")
             time.sleep(2)
             print("It is a treacherous journey, and for this reason, you have been granted the motivational poster!")
@@ -149,7 +148,7 @@ if l == "A" or "a":
                 print(l)
             print("+ 2 strength")
             print("-1 speech")
-            Speech = Speech - 1
+            speech = speech - 1
             strength = strength + 2
             # this will need a story added onto it. This story should lead to the school.
             print("After many long hours of crawling through the vents, you begin to see light...")
@@ -172,11 +171,32 @@ if l == "A" or "a":
                         print("-2 health!")
                         health = health - 2
                         break
-                    
+                    # needs cleaning up
+            print("As you stumble out of the vents, you see a building in the distance")
+            time.sleep(3)
+            print("You begin to walk to the building")
+            print("The sign on the wall says: School")
+            print("Level: School")
+            print("You open the door, and as you enter, you notice a strange thing, there is no sound")
+            print("You arrive at a corridor")
+            doors = input("There are five doors, you now may choose which one to enter. There are also lockers, which you can search through by inputting [l]. To enter a door, input a number form 1 - 5")
+            match doors:
+                case "1":
+                
+                case "2":
+                
+                case "3":
+
+                case "4":
+
+                case "5":
+
+                case "l":
+            # add cases
             # Under construction, have to incorporate player stats first
 
 
-        else:
+        elif choice.lower == "b":
             print("You now must go via the basement")
             time.sleep(3)
             print()
