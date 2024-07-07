@@ -5,7 +5,7 @@
 
 - inventory array including keys and quest items, not able to be sold haha
 
-- Maybe include basic tier character building like Fallout? I propose: Strength, Intuition, Speech and Luck as the only 4, have the player assign points at the start
+- Maybe include basic tier character building like Fallout? I propose: Strength, Speech and Luck as the only 3, have the player assign points at the start
   - Maybe add collectibles that increase said stats? (charms)
   - Include (special) actions that require a minimum stat requirement
 
@@ -21,15 +21,13 @@
 - Consumable item duration to further encourage strategy (1 turn being instant heal).
 
 - Further uses for Stats outside of in game actions to encourage character building, reminder that all of these are for per point assigned:
+
   - Strength:
-    - +1 heavy damage
+    - +1 damage
 
   - Luck:
     - +6% dodge (base chance = 5%)
     - +1 max coin per room
-  
-  - Intuition:
-    - +1 light damage
 
   - Speech:
     - Idk tbh, maybe  offer pacifist options in some fights?
@@ -145,7 +143,7 @@
 ## Charms
 
 - "Pocket sized print of 1984"
-  - Effect: +1 Intuition, +3 Reputation
+  - Effect: +1 Speech, +3 Reputation
   - Cost: found at school library maybe (maybe we can make it one of the endings of the school level)
 
 - "Polished 8-ball"

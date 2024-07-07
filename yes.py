@@ -15,6 +15,8 @@ speech = 0
 luck = 0
 defence = 0
 
+#Character creator
+
 
 
 # adding empty arrays
