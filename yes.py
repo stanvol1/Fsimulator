@@ -36,7 +36,15 @@ armour = [""]
 # thread = threading.Thread(target=health_bar_thing)
 # thread.start()
 # considering a print("LEVEL 0") thing here
-# clean up this piece of cod
+# clean up this piece of code
+print("FATHER SIMULATOR")
+print("the place where your father is digitalised")
+print("Main menu: ")
+#  need a points system here, giving a set amount of points that can be used, im thinking of storing it in a variable
+strength_input = input()
+
+
+
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
 
 
@@ -182,16 +190,18 @@ if l == "A" or "a":
             doors = input("There are five doors, you now may choose which one to enter. There are also lockers, which you can search through by inputting [l]. To enter a door, input a number form 1 - 5")
             match doors:
                 case "1":
-                
+                    print("entering the art classroom...")
                 case "2":
-                
+                    print("entering maths classroom...")
                 case "3":
-
+                    print("entering the english classroom...")
                 case "4":
-
+                    print("entering the the ") # add a classroom
                 case "5":
-
+                    print("entering the ") # once again, add a classroom
                 case "l":
+                    print("You found a!") # randomize a chance here to make a kind of loot table
+                    # need to add a loop so they can choose a classroom until they want to leave or until a certain condition is met 
             # add cases
             # Under construction, have to incorporate player stats first
 
