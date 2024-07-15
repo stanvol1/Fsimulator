@@ -6,6 +6,7 @@ coins = 0
 health = 10
 score = 0
 reputation = 0
+menupoints = 7
 
 
 #Traits
@@ -15,7 +16,6 @@ luck = 0
 defence = 0
 
 #Character creator
-
 
 
 # adding empty arrays
@@ -38,21 +38,44 @@ armour = [""]
 # thread.start()
 # considering a print("LEVEL 0") thing here
 # clean up this piece of code
-print("FATHER SIMULATOR")
-print("the place where your father is digitalised")
-print("Main menu: ")
+menuloop = True
+while menuloop:
+    print("FATHER SIMULATOR")
+    print("the place where your father is digitalised")
+    print("Main menu: ")
+    startmenu = input("[Continue]   [New game]\n")
+    match startmenu:
+        case "Continue":
+            print("")
+            # add ids and identifiers for progress etc
+            menuloop = False
+            break
+        case "New game":
+            menuloop = False
+            break
+        case _:
+            print("Hello World!")
+
 #  need a points system here, giving a set amount of points that can be used, im thinking of storing it in a variable
-strength_input = input()
 
 
 
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
-
+input_traits = True
+while input_traits:
+    print("Please assign your skills: ")
+    strength = int(input("Please assign strength:\n"))
+    speech = int(input("Please assign speech:\n"))
+    luck = int(input("Please assign luck:\n"))
+    if strength + speech + luck != 7:
+        continue
+    else:
+        break
 
 check = False 
 
 while not check:
-    i = input("You want an item, but it might be too expensive! Put in a price here, and if your lucky, father might allow you to buy it! (please only respond with a number): ")
+    i = input("You want an item, but it might be too expensive! Put in a price here, and if your lucky, father might allow you to buy it! (please only respond with a number):\n ")
     if i in "123456789":
         check = True
     else:
@@ -93,7 +116,7 @@ print("finally, at the end of the day, you are lying down on the sofa, but fathe
 
 time.sleep(2)
 
-v = input("you can respond with yes or no, but once again, choose your answer carefully, as this answer could seal your fate: ")
+v = input("you can respond with yes or no, but once again, choose your answer carefully, as this answer could seal your fate:\n")
 if v == "no":
     print("- 10 health")
     print("You died...")
@@ -132,7 +155,7 @@ print("part 1... the garden")
 time.sleep(3)
 print("You are now going out to the garden. It needs to be worked on. The following is a recording, recovered from a spontaneous fire in Father's study")
 print("Come on, we need to weed the garden, it's an absolute mess.")
-l = input("you must respond, but what do you say, respond with A: That's ridiculous! The garden has no weeds in it. Or B: OK, let's try and weed the garden")
+l = input("you must respond, but what do you say, respond with A: That's ridiculous! The garden has no weeds in it. Or B: OK, let's try and weed the garden\n")
 if l == "A" or "a":
     if defence >= 1:
         health = health - 4
@@ -147,7 +170,7 @@ if l == "A" or "a":
         print()
         print("you must escape, but how? there are two possibilities, but one is more dangerous than the other, but you must be quick, as Father is getting closer. ")
         # This needs to be cleaned up a huge amount
-    choice = input("you can escape via the [b]asement or the [v]ents")
+    choice = input("you can escape via the [b]asement or the [v]ents\n")
     if choice == "v":
             print("You now must go via the vents")
             time.sleep(2)
@@ -165,7 +188,7 @@ if l == "A" or "a":
             print("You see a mesh vent leading into a dull room at ground level...")
             time.sleep(3)
             print("To open the vent you could either: [pry] - Pry the vent cover open with your hands (min strength: 4), [brute] - Brute force the vent cover open (-2 health, no requirement)")
-            prybash = input("Please pick: ")
+            prybash = input("Please pick:\n")
 
             while True:
                 match prybash:
@@ -188,7 +211,7 @@ if l == "A" or "a":
             print("Level: School")
             print("You open the door, and as you enter, you notice a strange thing, there is no sound")
             print("You arrive at a corridor")
-            doors = input("There are five doors, you now may choose which one to enter. There are also lockers, which you can search through by inputting [l]. To enter a door, input a number form 1 - 5")
+            doors = input("There are five doors, you now may choose which one to enter. There are also lockers, which you can search through by inputting [l]. To enter a door, input a number form 1 - 5\n")
             match doors:
                 case "1":
                     print("entering the art classroom...")
