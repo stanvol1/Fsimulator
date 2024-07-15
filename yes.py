@@ -146,8 +146,8 @@ if l == "A" or "a":
         print()
         print("you must escape, but how? there are two possibilities, but one is more dangerous than the other, but you must be quick, as Father is getting closer. ")
         # This needs to be cleaned up a huge amount
-        choice = input("you can escape via the [b]asement or the [v]ents")
-        if choice.lower == "v":
+    choice = input("you can escape via the [b]asement or the [v]ents")
+    if choice == "v":
             print("You now must go via the vents")
             time.sleep(2)
             print("It is a treacherous journey, and for this reason, you have been granted the motivational poster!")
@@ -191,22 +191,25 @@ if l == "A" or "a":
             match doors:
                 case "1":
                     print("entering the art classroom...")
+                    print("")
                 case "2":
                     print("entering maths classroom...")
+                    if "textbook" in inventory:
+                        print("You haven't got a textbook")
                 case "3":
                     print("entering the english classroom...")
                 case "4":
-                    print("entering the the ") # add a classroom
+                    print("entering the the gym ") # add a classroom
                 case "5":
-                    print("entering the ") # once again, add a classroom
+                    print("entering the lab") # once again, add a classroom
                 case "l":
-                    print("You found a!") # randomize a chance here to make a kind of loot table
+                    print("You found a! ") # randomize a chance here to make a kind of loot table
                     # need to add a loop so they can choose a classroom until they want to leave or until a certain condition is met 
             # add cases
             # Under construction, have to incorporate player stats first
 
 
-        elif choice.lower == "b":
+    elif choice == "b":
             print("You now must go via the basement")
             time.sleep(3)
             print()
