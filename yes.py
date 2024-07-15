@@ -10,10 +10,11 @@ reputation = 0
 
 #Traits
 strength = 0
-intuition = 0
 speech = 0
 luck = 0
 defence = 0
+
+#Character creator
 
 
 
@@ -207,8 +208,6 @@ if l == "A" or "a":
                     # need to add a loop so they can choose a classroom until they want to leave or until a certain condition is met 
             # add cases
             # Under construction, have to incorporate player stats first
-
-
     elif choice == "b":
             print("You now must go via the basement")
             time.sleep(3)
