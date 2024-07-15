@@ -37,7 +37,15 @@ armour = [""]
 # thread = threading.Thread(target=health_bar_thing)
 # thread.start()
 # considering a print("LEVEL 0") thing here
-# clean up this piece of cod
+# clean up this piece of code
+print("FATHER SIMULATOR")
+print("the place where your father is digitalised")
+print("Main menu: ")
+#  need a points system here, giving a set amount of points that can be used, im thinking of storing it in a variable
+strength_input = input()
+
+
+
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
 
 
@@ -137,11 +145,10 @@ if l == "A" or "a":
         print()
         print("Father has transformed into a higher type of being, able to execute punishments beyond human comprehension")
         print()
-        print("you must escape, but how? there are two possibilities, but one is more dangerous than the other, but you must be quick, as Father is getting closer. You toss a coin. There is a 50/50 chance of each one: ")
+        print("you must escape, but how? there are two possibilities, but one is more dangerous than the other, but you must be quick, as Father is getting closer. ")
         # This needs to be cleaned up a huge amount
-        def coin():
-            return random.random() < .5
-        if coin():
+    choice = input("you can escape via the [b]asement or the [v]ents")
+    if choice == "v":
             print("You now must go via the vents")
             time.sleep(2)
             print("It is a treacherous journey, and for this reason, you have been granted the motivational poster!")
@@ -150,7 +157,7 @@ if l == "A" or "a":
                 print(l)
             print("+ 2 strength")
             print("-1 speech")
-            Speech = Speech - 1
+            speech = speech - 1
             strength = strength + 2
             # this will need a story added onto it. This story should lead to the school.
             print("After many long hours of crawling through the vents, you begin to see light...")
@@ -173,10 +180,35 @@ if l == "A" or "a":
                         print("-2 health!")
                         health = health - 2
                         break
-            # after loop you go back here
-                    
+                    # needs cleaning up
+            print("As you stumble out of the vents, you see a building in the distance")
+            time.sleep(3)
+            print("You begin to walk to the building")
+            print("The sign on the wall says: School")
+            print("Level: School")
+            print("You open the door, and as you enter, you notice a strange thing, there is no sound")
+            print("You arrive at a corridor")
+            doors = input("There are five doors, you now may choose which one to enter. There are also lockers, which you can search through by inputting [l]. To enter a door, input a number form 1 - 5")
+            match doors:
+                case "1":
+                    print("entering the art classroom...")
+                    print("")
+                case "2":
+                    print("entering maths classroom...")
+                    if "textbook" in inventory:
+                        print("You haven't got a textbook")
+                case "3":
+                    print("entering the english classroom...")
+                case "4":
+                    print("entering the the gym ") # add a classroom
+                case "5":
+                    print("entering the lab") # once again, add a classroom
+                case "l":
+                    print("You found a! ") # randomize a chance here to make a kind of loot table
+                    # need to add a loop so they can choose a classroom until they want to leave or until a certain condition is met 
+            # add cases
             # Under construction, have to incorporate player stats first
-        else:
+    elif choice == "b":
             print("You now must go via the basement")
             time.sleep(3)
             print()
