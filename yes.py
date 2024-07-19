@@ -54,12 +54,12 @@ while menuloop:
             menuloop = False
             break
         case _:
-            print("Hello World!")
+            print("Please input a valid word (either Continue or New game). Remember, it is case sensitive!")
 
 #  need a points system here, giving a set amount of points that can be used, im thinking of storing it in a variable
 
 
-
+print("Welcome to level 0. This is an easy level. Here, there is no way to alter how the game ends. Good luck!")
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
 input_traits = True
 while input_traits:
@@ -236,6 +236,8 @@ if l == "A" or "a":
             time.sleep(3)
             print()
             print("-this is creepy-, you think. You begin to hear voices...")
+            print("You see two people arguing with eachother. They have clothes with two different symbols on them.")
+            print("You walk up to them")
             # this will need another story, with different situations leading to a feature that we want to implement, but a different item should be added to the players inventory first
 # before continuing, we need to add the array for the inventory
 if l.lower() == "b":
