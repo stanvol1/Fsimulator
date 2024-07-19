@@ -1,6 +1,7 @@
 import time
 import threading
 import random
+import winsound
 # general vars
 coins = 0
 health = 10
@@ -24,26 +25,14 @@ heavy = [""]
 light = [""]
 consumables = [""]
 armour = [""]
-# all of this could be added later, but for now it's too buggy
-# code for the basic health bar thing
-# hbar = True
-# adding threading for the health bar (first time, so it's going to be inefficient and the code itself is going to be awful) yes
-# def health_bar_thing():
-   # while hbar is True:
-       # player_input = input()
-        # here I'm just trying out a little thing to see if I can make health bars or indicators that can be checked throughout the game
-       # if player_input == "health":
-          #  print("your health is " + str(health))
-# thread = threading.Thread(target=health_bar_thing)
-# thread.start()
-# considering a print("LEVEL 0") thing here
-# clean up this piece of code
 menuloop = True
 while menuloop:
+    winsound.PlaySound("2024-07-06 14-45-41.wav", winsound.SND_ALIAS|winsound.SND_ASYNC)
     print("FATHER SIMULATOR")
     print("the place where your father is digitalised")
     print("Main menu: ")
     startmenu = input("[Continue]   [New game]\n")
+    winsound.PlaySound("2024-07-06 14-45-41.wav", winsound.SND_ALIAS|winsound.SND_ASYNC)
     match startmenu:
         case "Continue":
             print("")
@@ -54,12 +43,7 @@ while menuloop:
             menuloop = False
             break
         case _:
-            print("Hello World!")
-
-#  need a points system here, giving a set amount of points that can be used, im thinking of storing it in a variable
-
-
-
+            print("Please input a valid word (either Continue or New game). Remember, it is case sensitive!")
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
 input_traits = True
 while input_traits:
@@ -71,10 +55,10 @@ while input_traits:
         continue
     else:
         break
-
 check = False 
 
 while not check:
+    print("Welcome to level 0. This is an easy level. Here, there is no way to alter how the game ends. Good luck!")
     i = input("You want an item, but it might be too expensive! Put in a price here, and if your lucky, father might allow you to buy it! (please only respond with a number):\n ")
     if i in "123456789":
         check = True
@@ -236,6 +220,8 @@ if l == "A" or "a":
             time.sleep(3)
             print()
             print("-this is creepy-, you think. You begin to hear voices...")
+            print("You see two people arguing with eachother. They have clothes with two different symbols on them.")
+            print("You walk up to them")
             # this will need another story, with different situations leading to a feature that we want to implement, but a different item should be added to the players inventory first
 # before continuing, we need to add the array for the inventory
 if l.lower() == "b":
