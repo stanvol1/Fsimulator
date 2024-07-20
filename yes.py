@@ -1,4 +1,5 @@
 import time
+import sys
 import threading
 import random
 # general vars
@@ -38,9 +39,15 @@ armour = [""]
 # thread.start()
 # considering a print("LEVEL 0") thing here
 # clean up this piece of code
+def typing(text):
+        for char in text:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.15)
+            # now, if you want to make a typewriter effect in any place within the code, just write typing("") instead of print("") don't forget to add a \n at the end though.
 menuloop = True
 while menuloop:
-    print("FATHER SIMULATOR")
+    typing("FATHER SIMULATOR\n")
     print("the place where your father is digitalised")
     print("Main menu: ")
     startmenu = input("[Continue]   [New game]\n")
@@ -67,20 +74,14 @@ while input_traits:
     strength = int(input("Please assign strength:\n"))
     speech = int(input("Please assign speech:\n"))
     luck = int(input("Please assign luck:\n"))
-    if strength + speech + luck != 7:
-        continue
-    else:
+    if strength + speech + luck == 7:
         break
-
-check = False 
-
-while not check:
-    i = input("You want an item, but it might be too expensive! Put in a price here, and if your lucky, father might allow you to buy it! (please only respond with a number):\n ")
-    if i in "123456789":
-        check = True
     else:
-        print("Input value must be an integer")
-if int(i) < 10:
+        print("Please input exactly 7 points")
+        continue
+
+i = int(input("You want an item, but it might be too expensive! Put in a price here, and if your lucky, father might allow you to buy it! (please only respond with a number):\n "))
+if i < 10:
     print("Father approves of the price, you can buy your item! Your score will be increased by 1")
     print("+ 1 score!")
     score = score + 1
@@ -136,7 +137,7 @@ if health <= 0:
 
 time.sleep(3)
 
-print("LEVEL 1")
+typing("LEVEL 1\n")
 
 time.sleep(2)
 
@@ -177,7 +178,9 @@ if l == "A" or "a":
             print("It is a treacherous journey, and for this reason, you have been granted the motivational poster!")
             inventory.append("Motivational Poster")
             for l in inventory:
+                print("You have:")
                 print(l)
+                print("In your inventory")
             print("+ 2 strength")
             print("-1 speech")
             speech = speech - 1
@@ -208,7 +211,7 @@ if l == "A" or "a":
             time.sleep(3)
             print("You begin to walk to the building")
             print("The sign on the wall says: School")
-            print("Level: School")
+            typing("Level: School\n")
             print("You open the door, and as you enter, you notice a strange thing, there is no sound")
             print("You arrive at a corridor")
             doors = input("There are five doors, you now may choose which one to enter. There are also lockers, which you can search through by inputting [l]. To enter a door, input a number form 1 - 5\n")
