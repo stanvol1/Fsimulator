@@ -2,6 +2,7 @@ import time
 import sys
 import threading
 import random
+import winsound
 # general vars
 coins = 0
 health = 10
@@ -212,26 +213,31 @@ if l == "A" or "a":
             typing("Level: School\n")
             print("You open the door, and as you enter, you notice a strange thing, there is no sound")
             print("You arrive at a corridor")
-            doors = input("There are five doors, you now may choose which one to enter. There are also lockers, which you can search through by inputting [l]. To enter a door, input a number form 1 - 5\n")
-            match doors:
-                case "1":
-                    print("entering the art classroom...")
-                    print("")
-                case "2":
-                    print("entering maths classroom...")
-                    if "textbook" in inventory:
-                        print("You haven't got a textbook")
-                case "3":
-                    print("entering the english classroom...")
-                case "4":
-                    print("entering the the gym ") # add a classroom
-                case "5":
-                    print("entering the lab") # once again, add a classroom
-                case "l":
-                    print("You found a! ") # randomize a chance here to make a kind of loot table
-                    # need to add a loop so they can choose a classroom until they want to leave or until a certain condition is met 
-            # add cases
-            # Under construction, have to incorporate player stats first
+            doors_loop = True
+            while doors_loop:
+                doors = input("There are five doors, you now may choose which one to enter. There are also lockers, which you can search through by inputting [l]. To enter a door, input a number from 1 - 5\n")
+                match doors:
+                    case "1":
+                        print("entering the art classroom...")
+                        print("")
+                    case "2":
+                        print("entering maths classroom...")
+                        if "textbook" in inventory:
+                            print("Come in")
+                        else:
+                            print("You haven't got a textbook, come back when you do")
+                            continue                
+                    case "3":
+                        print("entering the english classroom...")
+                    case "4":
+                        print("entering the the gym ") # add a classroom
+                    case "5":
+                        print("entering the lab") # once again, add a classroom
+                    case "l":
+                        print("You found a  ") # randomize a chance here to make a kind of loot table
+                        # need to add a loop so they can choose a classroom until they want to leave or until a certain condition is met 
+                # add cases
+                # Under construction, have to incorporate player stats first
 
 
     elif choice == "b":
