@@ -72,7 +72,7 @@
 - "CD ninja star": (light)
   - Damage: 4
   - Uses: 3
-  - Cost: ???
+  - Cost: 5
 
 ### Heavy
 
