@@ -238,6 +238,8 @@ if l == "A" or "a":
                         if "textbook" in inventory:
                             print("Come in")
                             brickinwall.play()
+                            print("You step inside the classroom")
+                            print("it is gray, with individual desks and an empty blackboard at the front")
                             # I will play another brick in the wall here
                         else:
                             print("You haven't got a textbook, come back when you do")
