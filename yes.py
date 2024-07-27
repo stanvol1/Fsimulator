@@ -24,6 +24,8 @@ speech = 0
 luck = 0
 defence = 0
 
+#Character creator
+
 
 # adding empty arrays
 vending_machine = ["CD ninja star", "safety scissors", "trail mix with raisins" "Nifty sunglasses"]

@@ -3,9 +3,9 @@
 - Teacher boss, at the end of the school level
 # New UI ideas (example: health, defence etc)
 
-- inventory array including keys and quest items, not able to be sold
+- inventory array including keys and quest items, not able to be sold haha
 
-- Maybe include basic tier character building like Fallout? I propose: Strength, Intuition, Speech and Luck as the only 4, have the player assign points at the start
+- Maybe include basic tier character building like Fallout? I propose: Strength, Speech and Luck as the only 3, have the player assign points at the start
   - Maybe add collectibles that increase said stats? (charms)
   - Include (special) actions that require a minimum stat requirement
 
@@ -21,19 +21,19 @@
 - Consumable item duration to further encourage strategy (1 turn being instant heal).
 
 - Further uses for Stats outside of in game actions to encourage character building, reminder that all of these are for per point assigned:
+
   - Strength:
-    - +1 heavy damage
+    - +1 damage
 
   - Luck:
-    - +3% dodge (base chance = 5%)
-    - +5% coin
-  
-  - Intuition:
-    - +1 light damage
+    - +6% dodge (base chance = 5%)
+    - +1 max coin per room
 
   - Speech:
     - Idk tbh, maybe  offer pacifist options in some fights?
     - we could give better options to players with higher speech
+  
+- In the base character creator, the max value that any given stat can have is 5, but items acquired can increase any given stat at 5 over the limit.
 
 - UI print out that specifies the temporary and non temporary buffs you have from items.
 
@@ -143,7 +143,7 @@
 ## Charms
 
 - "Pocket sized print of 1984"
-  - Effect: +1 Intuition, +3 Reputation
+  - Effect: +1 Speech, +3 Reputation
   - Cost: found at school library maybe (maybe we can make it one of the endings of the school level)
 
 - "Polished 8-ball"
