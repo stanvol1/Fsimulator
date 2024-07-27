@@ -18,6 +18,7 @@ menupoints = 7
 
 
 #Traits
+damage = 3
 strength = 0
 speech = 0
 luck = 0
@@ -233,8 +234,29 @@ if l == "A" or "a":
                         typing("entering the art classroom...\n")
                         print("within the arts classroom, there are multiple badly drawn posters, messy paintings and terrible cards adressed to now forgotten relatives and friends\n")
                         typing("It is obvious that this classroom hasn't seen use in a long while\n")
+                        artclassloop = True
+                        while artclassloop:
+                            art_classroom_input = input("There is a chest of [d]rawers, some [de]sks and a [b]ox. Input one of the characters in brackets. To go back to the hallway, input [back]\n")
+                            match art_classroom_input:
+                                case "d":
+                                    typing("Searching drawers...\n")
+                                    print("You found a: Bad painting")
+                                    inventory.append("Bad painting")
+                                case "de":
+                                    typing("Searching desks...\n")
+                                    print("You found... Textbook!")
+                                    inventory.append("textbook")
+                                case "b":
+                                    typing("Searching box...")
+                                    print("You found: Safety scissors! ")
+                                    damage = damage + 7
+                                case "back":
+                                    break
+                                case _:
+                                    print("Please input a valid response. Remember, they are case sensitive!")
+                            
                     case "2":
-                        typing("entering maths classroom...")
+                        typing("entering maths classroom...\n")
                         if "textbook" in inventory:
                             print("Come in")
                             brickinwall.play()
