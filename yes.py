@@ -249,6 +249,7 @@ if l == "A" or "a":
                                 case "b":
                                     typing("Searching box...")
                                     print("You found: Safety scissors! ")
+                                    typing("these give you +7 damage, but they only have 5 uses")
                                     damage = damage + 7
                                 case "back":
                                     break
@@ -281,6 +282,16 @@ if l == "A" or "a":
                             print("The locker may have the following items: ")
                             for lockeritems in vending_machine:
                                 print(vending_machine)
+                            # here I will have to add either cases or if functions
+                            match lockerchance:
+                                case "CD ninja star":
+                                    damage = damage + 3
+                                case "safety scissors":
+                                    damage = damage + 6
+                                case "trail mix with raisins":
+                                    trailmixuses = 1
+                                case "Nifty sunglasses":
+                                    print()
                         else:
                             print("Come back when you have at least 5 coins!")
                         # todo. Add effects and traits to the items given.
