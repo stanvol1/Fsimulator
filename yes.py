@@ -264,7 +264,24 @@ if l == "A" or "a":
                             print("Come in")
                             brickinwall.play()
                             print("You step inside the classroom")
-                            print("it is gray, with individual desks and an empty blackboard at the front")
+                            print("-Come on, sit down, or you will be punished-  ")
+                            print("You choose a seat next to a strange but kind looking student. They ask you something")
+                            typing("-Want to see something?-")
+                            print("sure")
+                            print("I have balloons filled with coloured paint. This school hasn't had any sort of colour within it for centuries.")
+                            print("Can you throw it?")
+                            maths_classroom_question = input("[y]es, [n]o")
+                            match maths_classroom_question:
+                                case "y":
+                                    print("Great, throw it!")
+                                    typing("You throw the balloons, they burst all over the classroom...")
+                                    print("This awakens something within the students")
+                                    print("They riot, breaking windows, vandilizing walls and perform all sorts of strange actions, taking full advantage of their new found freedom")
+                                    print("You see something fall. It's a brick")
+                                    print("Item gained! Another brick in the wall.")
+                                case "n": 
+                                    print("I expected better from you...")
+                                    
                             # I will play another brick in the wall here
                         else:
                             print("You haven't got a textbook, come back when you do")
@@ -293,7 +310,7 @@ if l == "A" or "a":
                                 case "trail mix with raisins":
                                     trailmixuses = 1
                                 case "Nifty sunglasses":
-                                    print()
+                                    speech = speech + 1
                         else:
                             print("Come back when you have at least 5 coins!")
                         # todo. Add effects and traits to the items given.
