@@ -251,6 +251,7 @@ if l == "A" or "a":
                                 case "b":
                                     typing("Searching box...")
                                     print("You found: Safety scissors! ")
+                                    typing("these give you +7 damage, but they only have 5 uses")
                                     damage = damage + 7
                                 case "back":
                                     break
@@ -259,17 +260,50 @@ if l == "A" or "a":
                             
                     case "2":
                         typing("entering maths classroom...\n")
-                        if "textbook" in inventory:
-                            print("Come in")
-                            brickinwall.play()
-                            print("You step inside the classroom")
-                            print("it is gray, with individual desks and an empty blackboard at the front")
-                            # I will play another brick in the wall here
+                        if "class_ban2" in inventory:
+                            print("You shall not pass")
                         else:
-                            print("You haven't got a textbook, come back when you do")
-                            continue                
+                            if "textbook" in inventory:
+                                print("Come in")
+                                brickinwall.play()
+                                print("You step inside the classroom")
+                                print("-Come on, sit down, or you will be punished-  ")
+                                print("You choose a seat next to a strange but kind looking student. They ask you something")
+                                typing("-Want to see something?-")
+                                print("sure")
+                                print("I have balloons filled with coloured paint. This school hasn't had any sort of colour within it for centuries.")
+                                print("Can you throw it?")
+                                maths_classroom_question = input("[y]es, [n]o")
+                                match maths_classroom_question:
+                                    case "y":
+                                        print("Great, throw it!")
+                                        typing("You throw the balloons, they burst all over the classroom...")
+                                        print("This awakens something within the students")
+                                        print("They riot, breaking windows, vandilizing walls and perform all sorts of strange actions, taking full advantage of their new found freedom")
+                                        print("You see something fall. It's a brick")
+                                        print("Item gained! Another brick in the wall.")
+                                    case "n": 
+                                        print("I expected better from you...")
+                                        typing("You leave the classroom, banished for the entirety of the run")
+                                        inventory.append("class_ban2")
+                                # I will play another brick in the wall here
+                            else:
+                                print("You haven't got a textbook, come back when you do")
+                                continue                
                     case "3":
                         typing("entering the english classroom...")
+                        print("you enter, and see that they are reading shakespeare.")
+                        englishloop1 = True
+                        while englishloop1:
+                            english_question = input("The teacher asks -have you got your book?- ([y]es or [n]o) ")
+                            if english_question.lower == "y":
+                                print("come in then!")
+                                break
+                            elif english_question.lower == "n":
+                                print("well, I suppose you may come in and listen, but don't distract anyone")
+                                break
+                            else:
+                                print("Huh? I don't understand you.")
                     case "4":
                         typing("entering the the gymnasium ") # add a classroom
                     case "5":
@@ -283,6 +317,16 @@ if l == "A" or "a":
                             print("The locker may have the following items: ")
                             for lockeritems in vending_machine:
                                 print(vending_machine)
+                            # here I will have to add either cases or if functions
+                            match lockerchance:
+                                case "CD ninja star":
+                                    damage = damage + 3
+                                case "safety scissors":
+                                    damage = damage + 6
+                                case "trail mix with raisins":
+                                    trailmixuses = 1
+                                case "Nifty sunglasses":
+                                    speech = speech + 1
                         else:
                             print("Come back when you have at least 5 coins!")
                         # todo. Add effects and traits to the items given.
