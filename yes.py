@@ -232,6 +232,13 @@ if l == "A" or "a":
             while doors_loop:
                 doors = input("There are five doors, you now may choose which one to enter. There are also lockers, which you can search through by inputting [l]. To enter a door, input a number from 1 - 5\n")
                 match doors:
+                    case "Darkmoon":
+                        print("")
+                    case "InTheRainbows":
+                        typing("Yeah, I\n")
+                        typing("I hit the bottom\n")
+                        typing("Hit the bottom and escape\n")
+                        typing("Escape.\n")
                     case "1":
                         typing("entering the art classroom...\n")
                         print("within the arts classroom, there are multiple badly drawn posters, messy paintings and terrible cards adressed to now forgotten relatives and friends\n")
@@ -317,7 +324,6 @@ if l == "A" or "a":
                             print("The locker may have the following items: ")
                             for lockeritems in vending_machine:
                                 print(vending_machine)
-                            # here I will have to add either cases or if functions
                             match lockerchance:
                                 case "CD ninja star":
                                     damage = damage + 3
@@ -326,17 +332,30 @@ if l == "A" or "a":
                                 case "trail mix with raisins":
                                     trailmixuses = 1
                                 case "Nifty sunglasses":
-                                    speech = speech + 1
+                                    speech = speech + 1               
                         else:
                             print("Come back when you have at least 5 coins!")
+                            break
+                        
                         # todo. Add effects and traits to the items given.
-    elif choice == "b":
-            print("You now must go via the basement")
-            time.sleep(3)
-            print()
-            print("-this is creepy-, you think. You begin to hear voices...")
-            print("You see two people arguing with eachother. They have clothes with two different symbols on them.")
-            print("You walk up to them")
+    if choice == "b":
+        print("You now must go via the basement")
+        time.sleep(3)
+        print()
+        print("-this is creepy-, you think. You begin to hear voices...")
+        time.sleep(3)
+        print("You see two people arguing with eachother. They have clothes with two different symbols on them.")
+        time.sleep(1)
+        print("You walk up to them")
+        time.sleep(0.5)
+        print("-Hello, who are you?- they ask. You respond: -I am but a lost child, please be kind to me, for I have not felt the love of a living being in many years-")
+        print("They take pity on you, and let you stay with them for the night. When they think you are asleep, they resume their argument:")
+        typing("-No! You cannot join them, it would be considered betrayal by our clan!-\n")
+        time.sleep(0.5)
+        typing("-But what if what they say is true? What if it really is better there?-\n")
+        time.sleep(0.5)
+        typing("-You must not fall for their propoganda. You know what they are like. Now go to sleep, I don't want to here anything else coming out of your mouth until morning comes-\n")
+
             # this will need another story, with different situations leading to a feature that we want to implement, but a different item should be added to the players inventory first
 # before continuing, we need to add the array for the inventory
 if l.lower() == "b":
