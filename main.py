@@ -2,7 +2,6 @@ import time
 import sys
 import threading
 import random
-import winsound
 import pygame
 pygame.init()
 pygame.mixer.init()
@@ -79,6 +78,8 @@ print("Welcome to level 0. This is an easy level. Here, there is no way to alter
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
 input_traits = True
 while input_traits:
+    print("This is the character creator. Here, you assign your skills. The total sum of the skills must add up to 7.")
+    time.sleep(3)
     print("Please assign your skills: ")
     strength = int(input("Please assign strength:\n"))
     speech = int(input("Please assign speech:\n"))

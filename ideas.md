@@ -1,21 +1,21 @@
 # Bosses
-- A level 10 boss of some type, maybe a demon father, who transformed after a freak accident
-- Teacher boss, at the end of the school level
+- A level 10 boss of some type, maybe a demon father, who transformed after a freak accident 
+- Teacher boss, at the end of the school level (rfr)
 # New UI ideas (example: health, defence etc)
 
-- inventory array including keys and quest items, not able to be sold haha
+- inventory array including keys and quest items, not able to be sold haha 
 
-- Maybe include basic tier character building like Fallout? I propose: Strength, Speech and Luck as the only 3, have the player assign points at the start
+- Maybe include basic tier character building like Fallout? I propose: Strength, Speech and Luck as the only 3, have the player assign points at the start (rfr)
   - Maybe add collectibles that increase said stats? (charms)
   - Include (special) actions that require a minimum stat requirement
 
-- System that does a "dice roll" after a certain number of player actions to determine whether the player will have an encounter or not.
+- System that does a "dice roll" after a certain number of player actions to determine whether the player will have an encounter or not. (after release)
 
-- System that acts as a shanty inventory, maybe allow 2 pieces of Armor (Head and body), 3 consumables and a light and heavy weapon at any given time and a charm. We could use a simple array to store that data.
+- System that acts as a shanty inventory, maybe allow 2 pieces of Armor (Head and body), 3 consumables and a light and heavy weapon at any given time and a charm. We could use a simple array to store that data. 
 
-- Basic turn based combat with consumable use and attack (either use consumable or attack, can't do both in the same turn obv.)
+- Basic turn based combat with consumable use and attack (either use consumable or attack, can't do both in the same turn obv.) (rfr)
 
-- Should we allow for 2 weapons or just one? Having two weapons in combat might allow for more creative plays.
+- Should we allow for 2 weapons or just one? Having two weapons in combat might allow for more creative plays. (for now, we can only code 1 weapon, )
   - We could introduce a heavy and light weapon class to balance things out, make sure people don't just spam heavy attacks.
 
 - Consumable item duration to further encourage strategy (1 turn being instant heal).
@@ -32,16 +32,14 @@
   - Speech:
     - Idk tbh, maybe  offer pacifist options in some fights?
     - we could give better options to players with higher speech
-  
-- In the base character creator, the max value that any given stat can have is 5, but items acquired can increase any given stat at 5 over the limit.
 
 - UI print out that specifies the temporary and non temporary buffs you have from items.
 
-- a sort of "reputation" system, which can be used in clans
+- a sort of "reputation" system, which can be used in clans (after )
 # Ideas for parts of levels
 
-- One of those McDonald's style plastic jungle jim play areas with all sorts of weird little characters.
-- A school level, where you have to navigate through the social hierarchy, interacting with people as you go along. Maybe this can be level 5.
+- One of those McDonald's style plastic jungle jim play areas with all sorts of weird little characters. (after release)
+- A school level, where you have to navigate through the social hierarchy, interacting with people as you go along. Maybe this can be level 5. (rfr)
 - clans, groups you could join. They can give good rewards if your reputation among the clan itself is high enough. I don't know when we would code this, but we could store reputation in a variable. The interactivity of this could be added later. 
 # Item Ideas
 
@@ -91,7 +89,7 @@
 
 - "Chonky-donky choco bar"
   - Effect: +3 Health
-  - Duration: 1 turn
+  - Duration: single use.
   - Cost: 3
 
 - "Trail mix with raisins"
