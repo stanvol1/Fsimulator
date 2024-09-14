@@ -317,27 +317,43 @@ if l == "A" or "a":
                     case "5":
                         typing("entering the lab") # once again, add a classroom
                     case "l":
-                        if coins > 4:
-                            lockerchance = random.choice(vending_machine)
-                            typing("You found: \n" + lockerchance + "\n")
-                            vending_machine.remove(lockerchance)
-                            inventory.append(lockerchance) # adds item to inventory
-                            print("The locker may have the following items: ")
-                            for lockeritems in vending_machine:
-                                print(vending_machine)
-                            match lockerchance:
-                                case "CD ninja star":
-                                    damage = damage + 3
-                                case "safety scissors":
-                                    damage = damage + 6
-                                case "trail mix with raisins":
+                        if luck <= 2:
+                            if coins > 4:
+                                lockerchance = random.choice(vending_machine)
+                                typing("You found: \n" + lockerchance + "\n")
+                                vending_machine.remove(lockerchance)
+                                inventory.append(lockerchance) # adds item to inventory
+                                print("The locker may have the following items: ")
+                                for lockeritems in vending_machine:
+                                    print(vending_machine)
+                                match lockerchance:
+                                    case "CD ninja star":
+                                        damage = damage + 3
+                                    case "safety scissors":
+                                        damage = damage + 6
+                                    case "trail mix with raisins":
+                                        trailmixuses = 1
+                                    case "Nifty sunglasses":
+                                        speech = speech + 1               
+                            else:
+                                print("Come back when you have at least 5 coins!")
+                                break
+                        elif luck > 2:
+                            chance = 0.10
+                            multiply = luck
+                            trailmixchance = luck * chance
+                            items = ['trailmix', 'sunglasses', 'cd', 'scissors']
+                            weights = [trailmixchance, 0.3, 0.4, 0.2]
+                            chosen_item = random.choices(items, weights=weights, k=1)[0]
+                            match chosen_item:
+                                case "trailmix":
                                     trailmixuses = 1
-                                case "Nifty sunglasses":
-                                    speech = speech + 1               
-                        else:
-                            print("Come back when you have at least 5 coins!")
-                            break
-                        
+                                    typing("You found a trail mix with raisins!\n")
+                                    print("This item can be used to heal 10 health 1 time.")
+                                case "cd":
+                                    typing("You found the CD ninja star!")
+                                    # work in progress
+
                         # todo. Add effects and traits to the items given.
     if choice == "b":
         print("You now must go via the basement")
