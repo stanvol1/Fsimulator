@@ -3,6 +3,7 @@ import sys
 import threading
 import random
 import pygame
+import keyboard
 pygame.init()
 pygame.mixer.init()
 # sounds using pygame
@@ -231,7 +232,7 @@ if l == "A" or "a":
             print("You arrive at a corridor")
             doors_loop = True
             while doors_loop:
-                doors = input("There are five doors, you now may choose which one to enter. There are also lockers, which you can search through by inputting [l]. To enter a door, input a number from 1 - 5\n")
+                doors = input("There are five doors, you now may choose which one to enter. There is also a vending machine, costing 5 coins, which you can search through by inputting [v]. To enter a door, input a number from 1 - 5\n")
                 match doors:
                     case "Darkmoon":
                         print("")
@@ -311,30 +312,38 @@ if l == "A" or "a":
                                 print("well, I suppose you may come in and listen, but don't distract anyone")
                                 break
                             else:
-                                print("Huh? I don't understand you.")
+                                print("Huh? I can't understand you.")
                     case "4":
                         typing("entering the the gymnasium ") # add a classroom
                     case "5":
                         typing("entering the lab") # once again, add a classroom
-                    case "l":
+                    case "v":
                         if luck <= 2:
                             if coins > 4:
-                                lockerchance = random.choice(vending_machine)
-                                typing("You found: \n" + lockerchance + "\n")
-                                vending_machine.remove(lockerchance)
-                                inventory.append(lockerchance) # adds item to inventory
+                                vendingchance = random.choice(vending_machine)
+                                typing("You found: \n" + vendingchance + "\n")
+                                vending_machine.remove(vendingchance)
+                                inventory.append(vendingchance) # adds item to inventory
                                 print("The locker may have the following items: ")
                                 for lockeritems in vending_machine:
                                     print(vending_machine)
-                                match lockerchance:
+                                match vendingchance:
                                     case "CD ninja star":
+                                        print("When used, this does 3 damage!")
                                         damage = damage + 3
                                     case "safety scissors":
+                                        print("when used, this does 6 damage!")
                                         damage = damage + 6
                                     case "trail mix with raisins":
+                                        print("when used, this heals you for 10 hitpoints!")
                                         trailmixuses = 1
                                     case "Nifty sunglasses":
-                                        speech = speech + 1               
+                                        print("These add to your speach stat by 1!")
+                                        print("Press e to equip them!")
+                                        if keyboard.is_pressed("e"):
+                                            print("You equipped nifty sunglasses!")
+                                            speech = speech + 1
+
                             else:
                                 print("Come back when you have at least 5 coins!")
                                 break
@@ -352,7 +361,8 @@ if l == "A" or "a":
                                     print("This item can be used to heal 10 health 1 time.")
                                 case "cd":
                                     typing("You found the CD ninja star!")
-                                    # work in progress
+
+                                    
 
                         # todo. Add effects and traits to the items given.
     if choice == "b":
