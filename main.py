@@ -10,7 +10,8 @@ pygame.mixer.init()
 brickinwall = pygame.mixer.Sound("5959375254061056.mp3")
 
 # general vars
-coins = 0
+test = "I can't be bothered to put anything in here yet"
+coins = 1000000
 health = 10
 score = 0
 reputation = 0
@@ -298,7 +299,8 @@ if l == "A" or "a":
                                 # I will play another brick in the wall here
                             else:
                                 print("You haven't got a textbook, come back when you do")
-                                continue                
+                                continue
+
                     case "3":
                         typing("entering the english classroom...")
                         print("you enter, and see that they are reading shakespeare.")
@@ -313,10 +315,13 @@ if l == "A" or "a":
                                 break
                             else:
                                 print("Huh? I can't understand you.")
+
                     case "4":
                         typing("entering the the gymnasium ") # add a classroom
+
                     case "5":
                         typing("entering the lab") # once again, add a classroom
+
                     case "v":
                         if luck <= 2:
                             if coins > 4:
@@ -348,43 +353,48 @@ if l == "A" or "a":
                                 print("Come back when you have at least 5 coins!")
                                 break
                         elif luck > 2:
-                            chance = 0.10
-                            multiply = luck
-                            trailmixchance = luck * chance
-                            items = ['trailmix', 'sunglasses', 'cd', 'scissors']
-                            weights = [trailmixchance, 0.3, 0.4, 0.2]
-                            chosen_item = random.choices(items, weights=weights, k=1)[0]
-                            match chosen_item:
-                                case "trailmix":
-                                    trailmixuses = 1
-                                    typing("You found a trail mix with raisins!\n")
-                                    print("This item can be used to heal 10 health 1 time.")
-                                case "cd":
-                                    typing("You found the CD ninja star!")
+                            if coins > 4:
+                                chance = 0.10
+                                multiply = luck
+                                trailmixchance = luck * chance
+                                items = ['trailmix', 'sunglasses', 'cd', 'scissors']
+                                weights = [trailmixchance, 0.3, 0.4, 0.2]
+                                chosen_item = random.choices(items, weights=weights, k=1)[0]
+                                match chosen_item:
+                                    case "trailmix":
+                                        trailmixuses = 1
+                                        typing("You found a trail mix with raisins!\n")
+                                        print("This item can be used to heal 10 health 1 time.")
+                                    case "cd":
+                                        typing("You found the CD ninja star!")
+                                        print("This can be used once to deal 3 damage!")
+                                    case "scissors":
+                                        print(test)
+                                    case "sunglasses":
+                                        print(test)
+                            else:
+                                print("Come back when you have at least 5 coins!")
+                                break
 
-                                    
-
-                        # todo. Add effects and traits to the items given.
     if choice == "b":
-        print("You now must go via the basement")
-        time.sleep(3)
-        print()
-        print("-this is creepy-, you think. You begin to hear voices...")
-        time.sleep(3)
-        print("You see two people arguing with eachother. They have clothes with two different symbols on them.")
-        time.sleep(1)
-        print("You walk up to them")
-        time.sleep(0.5)
-        print("-Hello, who are you?- they ask. You respond: -I am but a lost child, please be kind to me, for I have not felt the love of a living being in many years-")
-        print("They take pity on you, and let you stay with them for the night. When they think you are asleep, they resume their argument:")
-        typing("-No! You cannot join them, it would be considered betrayal by our clan!-\n")
-        time.sleep(0.5)
-        typing("-But what if what they say is true? What if it really is better there?-\n")
-        time.sleep(0.5)
-        typing("-You must not fall for their propoganda. You know what they are like. Now go to sleep, I don't want to here anything else coming out of your mouth until morning comes-\n")
-
+        print("This is a work in progress, at the moment this cannot be played, as we spent all of our non-existant budget on the vents. This will be completed at some point later")
+       # print("You now must go via the basement")
+       # time.sleep(3)
+       # print()
+       # print("-this is creepy-, you think. You begin to hear voices...")
+       # time.sleep(3)
+       # print("You see two people arguing with eachother. They have clothes with two different symbols on them.")
+       # time.sleep(1)
+       # print("You walk up to them")
+       # time.sleep(0.5)
+       # print("-Hello, who are you?- they ask. You respond: -I am but a lost child, please be kind to me, for I have not felt the love of a living being in many years-")
+       # print("They take pity on you, and let you stay with them for the night. When they think you are asleep, they resume their argument:")
+       # typing("-No! You cannot join them, it would be considered betrayal by our clan!-\n")
+       # time.sleep(0.5)
+       # typing("-But what if what they say is true? What if it really is better there?-\n")
+       # time.sleep(0.5)
+       # typing("-You must not fall for their propoganda. You know what they are like. Now go to sleep, I don't want to here anything else coming out of your mouth until morning comes-\n")
             # this will need another story, with different situations leading to a feature that we want to implement, but a different item should be added to the players inventory first
-# before continuing, we need to add the array for the inventory
 if l.lower() == "b":
     print("Well done! You picked the right answer. You will now be rewarded with 5 coins!")
     coins = coins + 5
