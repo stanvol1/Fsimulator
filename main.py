@@ -6,10 +6,41 @@ import pygame
 import keyboard
 pygame.init()
 pygame.mixer.init()
+
+# functions
+def hall_monitor():
+    global speech
+    global coins
+    global inventory
+    print("Well well well")
+    time.sleep(3)
+    print("what do we have here...")
+    time.sleep(3)
+    print("what are you doing on my turf at this hour, chum?")
+    print("See this badge? It invests in me the authority to do whatever I want with you if I catch you in my hallway, and I ask of you 2 coins")
+    print("now now, I will have to punish you for this")
+    input("why are you in this hallway anyway?")
+    if speech > 4:
+        print("well, I suppose I could let you pass, no need to pay me anything")
+    elif "uno_reverse" in inventory:
+        unocard = input("You have an Uno reverse card, you could use this to escape")
+        print("Why, you have a reverse card, I suppose I must punish myself now")
+        print("Here are the two coins I demanded of you")
+        coins = coins + 2
+        
+    elif coins == 0:
+        print("No coins means a beating")
+        strength =  strength - 2
+        print("-2 strength")
+        
+    elif coins >= 2:
+        print("You have 2 coins or more, you can buy your way out of this")
+
 # sounds using pygame
 brickinwall = pygame.mixer.Sound("5959375254061056.mp3")
 
 # general vars
+ventsloop = True
 test = "I can't be bothered to put anything in here yet"
 coins = 1000000
 health = 10
@@ -188,197 +219,198 @@ if l == "A" or "a":
         print()
         print("you must escape, but how? there are two possibilities, but one is more dangerous than the other, but you must be quick, as Father is getting closer. ")
         # This needs to be cleaned up a huge amount
-    choice = input("you can escape via the [b]asement or the [v]ents\n")
-    if choice == "v":
-            print("You now must go via the vents")
-            time.sleep(2)
-            print("It is a treacherous journey, and for this reason, you have been granted the motivational poster!")
-            inventory.append("Motivational Poster")
-            for l in inventory:
-                print("You have:")
-                print(l)
-            print("In your inventory")
-            print("+ 2 strength")
-            print("-1 speech")
-            speech = speech - 1
-            strength = strength + 2
-            # this will need a story added onto it. This story should lead to the school.
-            print("After many long hours of crawling through the vents, you begin to see light...")
-            time.sleep(3)
-            print("You see a mesh vent leading into a dull room at ground level...")
-            time.sleep(3)
-            print("To open the vent you could either: [pry] - Pry the vent cover open with your hands (min strength: 4), [brute] - Brute force the vent cover open (-2 health, no requirement)")
-            prybash = input("Please pick:\n")
+        while ventsloop:
+            choice = input("you can escape via the [b]asement or the [v]ents\n")
+            if choice == "v":
+                    print("You now must go via the vents")
+                    time.sleep(2)
+                    print("It is a treacherous journey, and for this reason, you have been granted the motivational poster!")
+                    inventory.append("Motivational Poster")
+                    for l in inventory:
+                        print("You have:")
+                        print(l)
+                    print("In your inventory")
+                    print("+ 2 strength")
+                    print("-1 speech")
+                    speech = speech - 1
+                    strength = strength + 2
+                    # this will need a story added onto it. This story should lead to the school.
+                    print("After many long hours of crawling through the vents, you begin to see light...")
+                    time.sleep(3)
+                    print("You see a mesh vent leading into a dull room at ground level...")
+                    time.sleep(3)
+                    print("To open the vent you could either: [pry] - Pry the vent cover open with your hands (min strength: 4), [brute] - Brute force the vent cover open (-2 health, no requirement)")
+                    prybash = input("Please pick:\n")
 
-            while True:
-                match prybash:
-                    case "pry":
-                        if strength >= 4:
-                            print("You pried open the vent cover!")
-                            break
-                        elif strength < 4:
-                            print("You must have 4 or more strength to do that!")
-                    case "brute":
-                        print("You put your body weight into it and bash open the vent cover, your ribs ache a bit.")
-                        print("-2 health!")
-                        health = health - 2
-                        break
-                    # needs cleaning up
-            print("As you stumble out of the vents, you see a building in the distance")
-            time.sleep(3)
-            print("You begin to walk to the building")
-            print("The sign on the wall says: School")
-            typing("Level: School\n")
-            print("You open the door, and as you enter, you notice a strange thing, there is no sound")
-            print("You arrive at a corridor")
-            doors_loop = True
-            while doors_loop:
-                doors = input("There are five doors, you now may choose which one to enter. There is also a vending machine, costing 5 coins, which you can search through by inputting [v]. To enter a door, input a number from 1 - 5\n")
-                match doors:
-                    case "Darkmoon":
-                        print("")
-                    case "InTheRainbows":
-                        typing("Yeah, I\n")
-                        typing("I hit the bottom\n")
-                        typing("Hit the bottom and escape\n")
-                        typing("Escape.\n")
-                    case "1":
-                        typing("entering the art classroom...\n")
-                        print("within the arts classroom, there are multiple badly drawn posters, messy paintings and terrible cards adressed to now forgotten relatives and friends\n")
-                        typing("It is obvious that this classroom hasn't seen use in a long while\n")
-                        artclassloop = True
-                        while artclassloop:
-                            art_classroom_input = input("There is a chest of [d]rawers, some [de]sks and a [b]ox. Input one of the characters in brackets. To go back to the hallway, input [back]\n")
-                            match art_classroom_input:
-                                case "d":
-                                    typing("Searching drawers...\n")
-                                    print("You found a: Bad painting")
-                                    inventory.append("Bad painting")
-                                case "de":
-                                    typing("Searching desks...\n")
-                                    print("You found... Textbook!")
-                                    inventory.append("textbook")
-                                case "b":
-                                    typing("Searching box...")
-                                    print("You found: Safety scissors! ")
-                                    typing("these give you +7 damage, but they only have 5 uses")
-                                    damage = damage + 7
-                                case "back":
+                    while True:
+                        match prybash:
+                            case "pry":
+                                if strength >= 4:
+                                    print("You pried open the vent cover!")
                                     break
-                                case _:
-                                    print("Please input a valid response. Remember, they are case sensitive!")
-                            
-                    case "2":
-                        typing("entering maths classroom...\n")
-                        if "class_ban2" in inventory:
-                            print("You shall not pass")
-                        else:
-                            if "textbook" in inventory:
-                                print("Come in")
-                                brickinwall.play()
-                                print("You step inside the classroom")
-                                print("-Come on, sit down, or you will be punished-  ")
-                                print("You choose a seat next to a strange but kind looking student. They ask you something")
-                                typing("-Want to see something?-")
-                                print("sure")
-                                print("I have balloons filled with coloured paint. This school hasn't had any sort of colour within it for centuries.")
-                                print("Can you throw it?")
-                                maths_classroom_question = input("[y]es, [n]o")
-                                match maths_classroom_question:
-                                    case "y":
-                                        print("Great, throw it!")
-                                        typing("You throw the balloons, they burst all over the classroom...")
-                                        print("This awakens something within the students")
-                                        print("They riot, breaking windows, vandilizing walls and perform all sorts of strange actions, taking full advantage of their new found freedom")
-                                        print("You see something fall. It's a brick")
-                                        print("Item gained! Another brick in the wall.")
-                                    case "n": 
-                                        print("I expected better from you...")
-                                        typing("You leave the classroom, banished for the entirety of the run")
-                                        inventory.append("class_ban2")
-                                # I will play another brick in the wall here
-                            else:
-                                print("You haven't got a textbook, come back when you do")
-                                continue
-
-                    case "3":
-                        typing("entering the english classroom...")
-                        print("you enter, and see that they are reading shakespeare.")
-                        englishloop1 = True
-                        while englishloop1:
-                            english_question = input("The teacher asks -have you got your book?- ([y]es or [n]o) ")
-                            if english_question.lower == "y":
-                                print("come in then!")
+                                elif strength < 4:
+                                    print("You must have 4 or more strength to do that!")
+                            case "brute":
+                                print("You put your body weight into it and bash open the vent cover, your ribs ache a bit.")
+                                print("-2 health!")
+                                health = health - 2
                                 break
-                            elif english_question.lower == "n":
-                                print("well, I suppose you may come in and listen, but don't distract anyone")
-                                break
-                            else:
-                                print("Huh? I can't understand you.")
+                            # needs cleaning up
+                    print("As you stumble out of the vents, you see a building in the distance")
+                    time.sleep(3)
+                    print("You begin to walk to the building")
+                    print("The sign on the wall says: School")
+                    typing("Level: School\n")
+                    print("You open the door, and as you enter, you notice a strange thing, there is no sound")
+                    print("You arrive at a corridor")
+                    doors_loop = True
+                    while doors_loop:
+                        doors = input("There are five doors, you now may choose which one to enter. There is also a vending machine, costing 5 coins, which you can search through by inputting [v]. To enter a door, input a number from 1 - 5\n")
+                        match doors:
+                            case "Darkmoon":
+                                print("")
+                            case "InTheRainbows":
+                                typing("Yeah, I\n")
+                                typing("I hit the bottom\n")
+                                typing("Hit the bottom and escape\n")
+                                typing("Escape.\n")
+                            case "1":
+                                typing("entering the art classroom...\n")
+                                print("within the arts classroom, there are multiple badly drawn posters, messy paintings and terrible cards adressed to now forgotten relatives and friends\n")
+                                typing("It is obvious that this classroom hasn't seen use in a long while\n")
+                                artclassloop = True
+                                while artclassloop:
+                                    art_classroom_input = input("There is a chest of [d]rawers, some [de]sks and a [b]ox. Input one of the characters in brackets. To go back to the hallway, input [back]\n")
+                                    match art_classroom_input:
+                                        case "d":
+                                            typing("Searching drawers...\n")
+                                            print("You found a: Bad painting")
+                                            inventory.append("Bad painting")
+                                        case "de":
+                                            typing("Searching desks...\n")
+                                            print("You found... Textbook!")
+                                            inventory.append("textbook")
+                                        case "b":
+                                            typing("Searching box...")
+                                            print("You found: Safety scissors! ")
+                                            typing("these give you +7 damage, but they only have 5 uses")
+                                            damage = damage + 7
+                                        case "back":
+                                            break
+                                        case _:
+                                            print("Please input a valid response. Remember, they are case sensitive!")
+                                    
+                            case "2":
+                                typing("entering maths classroom...\n")
+                                if "class_ban2" in inventory:
+                                    print("You shall not pass")
+                                else:
+                                    if "textbook" in inventory:
+                                        print("Come in")
+                                        brickinwall.play()
+                                        print("You step inside the classroom")
+                                        print("-Come on, sit down, or you will be punished-  ")
+                                        print("You choose a seat next to a strange but kind looking student. They ask you something")
+                                        typing("-Want to see something?-")
+                                        print("sure")
+                                        print("I have balloons filled with coloured paint. This school hasn't had any sort of colour within it for centuries.")
+                                        print("Can you throw it?")
+                                        maths_classroom_question = input("[y]es, [n]o")
+                                        match maths_classroom_question:
+                                            case "y":
+                                                print("Great, throw it!")
+                                                typing("You throw the balloons, they burst all over the classroom...")
+                                                print("This awakens something within the students")
+                                                print("They riot, breaking windows, vandilizing walls and perform all sorts of strange actions, taking full advantage of their new found freedom")
+                                                print("You see something fall. It's a brick")
+                                                print("Item gained! Another brick in the wall.")
+                                            case "n": 
+                                                print("I expected better from you...")
+                                                typing("You leave the classroom, banished for the entirety of the run")
+                                                inventory.append("class_ban2")
+                                        # I will play another brick in the wall here
+                                    else:
+                                        print("You haven't got a textbook, come back when you do")
+                                        continue
 
-                    case "4":
-                        typing("entering the the gymnasium ") # add a classroom
+                            case "3":
+                                typing("entering the english classroom...")
+                                print("you enter, and see that they are reading shakespeare.")
+                                englishloop1 = True
+                                while englishloop1:
+                                    english_question = input("The teacher asks -have you got your book?- ([y]es or [n]o) ")
+                                    if english_question.lower == "y":
+                                        print("come in then!")
+                                        break
+                                    elif english_question.lower == "n":
+                                        print("well, I suppose you may come in and listen, but don't distract anyone")
+                                        break
+                                    else:
+                                        print("Huh? I can't understand you.")
 
-                    case "5":
-                        typing("entering the lab") # once again, add a classroom
+                            case "4":
+                                typing("entering the the gymnasium ") # add a classroom
 
-                    case "v":
-                        if luck <= 2:
-                            if coins > 4:
-                                vendingchance = random.choice(vending_machine)
-                                typing("You found: \n" + vendingchance + "\n")
-                                vending_machine.remove(vendingchance)
-                                inventory.append(vendingchance) # adds item to inventory
-                                print("The locker may have the following items: ")
-                                for lockeritems in vending_machine:
-                                    print(vending_machine)
-                                match vendingchance:
-                                    case "CD ninja star":
-                                        print("When used, this does 3 damage!")
-                                        damage = damage + 3
-                                    case "safety scissors":
-                                        print("when used, this does 6 damage!")
-                                        damage = damage + 6
-                                    case "trail mix with raisins":
-                                        print("when used, this heals you for 10 hitpoints!")
-                                        trailmixuses = 1
-                                    case "Nifty sunglasses":
-                                        print("These add to your speach stat by 1!")
-                                        print("Press e to equip them!")
-                                        if keyboard.is_pressed("e"):
-                                            print("You equipped nifty sunglasses!")
-                                            speech = speech + 1
+                            case "5":
+                                typing("entering the lab") # once again, add a classroom
 
-                            else:
-                                print("Come back when you have at least 5 coins!")
-                                break
-                        elif luck > 2:
-                            if coins > 4:
-                                chance = 0.10
-                                multiply = luck
-                                trailmixchance = luck * chance
-                                items = ['trailmix', 'sunglasses', 'cd', 'scissors']
-                                weights = [trailmixchance, 0.3, 0.4, 0.2]
-                                chosen_item = random.choices(items, weights=weights, k=1)[0]
-                                match chosen_item:
-                                    case "trailmix":
-                                        trailmixuses = 1
-                                        typing("You found a trail mix with raisins!\n")
-                                        print("This item can be used to heal 10 health 1 time.")
-                                    case "cd":
-                                        typing("You found the CD ninja star!")
-                                        print("This can be used once to deal 3 damage!")
-                                    case "scissors":
-                                        print(test)
-                                    case "sunglasses":
-                                        print(test)
-                            else:
-                                print("Come back when you have at least 5 coins!")
-                                break
+                            case "v":
+                                if luck <= 2:
+                                    if coins > 4:
+                                        vendingchance = random.choice(vending_machine)
+                                        typing("You found: \n" + vendingchance + "\n")
+                                        vending_machine.remove(vendingchance)
+                                        inventory.append(vendingchance) # adds item to inventory
+                                        print("The locker may have the following items: ")
+                                        for lockeritems in vending_machine:
+                                            print(vending_machine)
+                                        match vendingchance:
+                                            case "CD ninja star":
+                                                print("When used, this does 3 damage!")
+                                                damage = damage + 3
+                                            case "safety scissors":
+                                                print("when used, this does 6 damage!")
+                                                damage = damage + 6
+                                            case "trail mix with raisins":
+                                                print("when used, this heals you for 10 hitpoints!")
+                                                trailmixuses = 1
+                                            case "Nifty sunglasses":
+                                                print("These add to your speach stat by 1!")
+                                                print("Press e to equip them!")
+                                                if keyboard.is_pressed("e"):
+                                                    print("You equipped nifty sunglasses!")
+                                                    speech = speech + 1
 
-    if choice == "b":
-        print("This is a work in progress, at the moment this cannot be played, as we spent all of our non-existant budget on the vents. This will be completed at some point later")
-       # print("You now must go via the basement")
+                                    else:
+                                        print("Come back when you have at least 5 coins!")
+                                        break
+                                elif luck > 2:
+                                    if coins > 4:
+                                        chance = 0.10
+                                        multiply = luck
+                                        trailmixchance = luck * chance
+                                        items = ['trailmix', 'sunglasses', 'cd', 'scissors']
+                                        weights = [trailmixchance, 0.3, 0.4, 0.2]
+                                        chosen_item = random.choices(items, weights=weights, k=1)[0]
+                                        match chosen_item:
+                                            case "trailmix":
+                                                trailmixuses = 1
+                                                typing("You found a trail mix with raisins!\n")
+                                                print("This item can be used to heal 10 health 1 time.")
+                                            case "cd":
+                                                typing("You found the CD ninja star!")
+                                                print("This can be used once to deal 3 damage!")
+                                            case "scissors":
+                                                print(test)
+                                            case "sunglasses":
+                                                print(test)
+                                    else:
+                                        print("Come back when you have at least 5 coins!")
+                                        break
+
+            if choice == "b":
+                print("This is a work in progress, at the moment this cannot be played, as we spent all of our non-existant budget on the vents. This will be completed at some point later")
+            # print("You now must go via the basement")
        # time.sleep(3)
        # print()
        # print("-this is creepy-, you think. You begin to hear voices...")
