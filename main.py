@@ -8,6 +8,7 @@ pygame.init()
 pygame.mixer.init()
 
 # functions
+
 def hall_monitor():
     global speech
     global coins
@@ -47,6 +48,8 @@ health = 10
 score = 0
 reputation = 0
 menupoints = 7
+scissors_uses = 6
+
 
 
 #Traits
@@ -55,8 +58,20 @@ strength = 0
 speech = 0
 luck = 0
 defence = 0
+attack_damage = 0.75 * strength
+# Combat damage
+def hit():
+    global damage
+    global health
+    global attack_damage
+    global inventory
+    if "scissors" in inventory:
+        scissors_hit = ("You have safety scissors in your inventory, would you like to use them?")
+        if scissors_hit == "y":
+            print("6 damage!")
+            scissors_uses = scissors_uses - 1
+            print("safety scissors uses:" + scissors_uses)
 
-#Character creator
 
 
 # adding empty arrays
@@ -294,7 +309,7 @@ if l == "A" or "a":
                                             typing("Searching box...")
                                             print("You found: Safety scissors! ")
                                             typing("these give you +7 damage, but they only have 5 uses")
-                                            damage = damage + 7
+                                            inventory.append("scissors")
                                         case "back":
                                             break
                                         case _:
