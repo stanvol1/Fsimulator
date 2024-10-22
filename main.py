@@ -1,3 +1,4 @@
+
 import time
 import sys
 import threading
@@ -8,7 +9,6 @@ pygame.init()
 pygame.mixer.init()
 
 # functions
-
 def hall_monitor():
     global speech
     global coins
@@ -31,7 +31,7 @@ def hall_monitor():
         
     elif coins == 0:
         print("No coins means a beating")
-        strength =  strength - 2
+        strength = strength - 2
         print("-2 strength")
         
     elif coins >= 2:
@@ -60,6 +60,59 @@ luck = 0
 defence = 0
 attack_damage = 0.75 * strength
 # Combat damage
+def encounter():
+    def typing(text):
+        for char in text:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.15)
+    player_health = 50
+    global attack_damage
+    chomik_health = 20
+    print("you enter the room, but as you walk in, you see a small animal looking around; it's a hamster")
+    print("You recognise it as the english classes's pet, chomik.")
+    print("Although he doesn't seem aggressive, you suddenly see a boss bar appear out of thin air (-huh, that isn't normal, you think-)")
+    print("chomik has 20 health")
+    typing("you are now in combat\n")
+    cturn1 = True
+    cturn2 = False
+    while cturn1:
+        cturninp = input("It is your turn. Do you want to [A]ttack, [T]alk or [R]un ")
+        if cturninp == "a":
+            randomchancecombat = random.choice([1, 0])
+            if randomchancecombat == 1:
+                chomik_health = chomik_health - attack_damage
+                print("Your attack did " + str(attack_damage))
+                print("chomik now has " + str(chomik_health))
+                if chomik_health < 1:
+                    print("You won the fight!")
+                    break
+                else:
+                    cturn1 = False
+                    cturn2 = True
+                while cturn2:
+                    chomik_damage = 1
+                    player_health = player_health - 1
+                    print("chomik did 1 damage")
+                    print("You now have " + str(player_health))
+                    cturn2 = False
+                    cturn1 = True
+                continue
+            if randomchancecombat == 0:
+                print("your attack failed!")
+                typing("You lost 1 health!")
+                player_health = player_health - 1
+                continue
+        elif cturninp == "t":
+            if speech < 3:
+                typing("no can do, your social skills are so terrible that you can't even talk to a hamster...\n")
+            else:
+                typing("it's a bloody hamster, it doesn't matter how charismatic you are, you don't speak in squeaks. (really, what did you expect? You're not a fucking wizard)\n")
+        elif cturninp == "r":
+            print("a ring of squeaks follow you, and you peer back to see a very angry hamster rushing towards you at almost superhuman speeds. It looks like you are forced to take the fight.")
+        
+
+encounter()
 def hit():
     global damage
     global health
@@ -71,7 +124,6 @@ def hit():
             print("6 damage!")
             scissors_uses = scissors_uses - 1
             print("safety scissors uses:" + scissors_uses)
-
 
 
 # adding empty arrays
@@ -443,5 +495,7 @@ if l == "A" or "a":
        # typing("-You must not fall for their propoganda. You know what they are like. Now go to sleep, I don't want to here anything else coming out of your mouth until morning comes-\n")
             # this will need another story, with different situations leading to a feature that we want to implement, but a different item should be added to the players inventory first
 if l.lower() == "b":
-    print("Well done! You picked the right answer. You will now be rewarded with 5 coins!")
-    coins = coins + 5
+    print("this is a work in progress, this game needs a lot of work done to it before we can actually start on this level, although in the future, this will be an arcade level")
+    typing("at the moment, you will be sent to the only working level, the School.")
+    # print("Well done! You picked the right answer. You will now be rewarded with 5 coins!")
+    # coins = coins + 5
