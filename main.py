@@ -95,6 +95,8 @@ def encounter():
                     player_health = player_health - 1
                     print("chomik did 1 damage")
                     print("You now have " + str(player_health))
+                    if player_health < 1:
+                        print("you lost the fight (HOW, THIS IS THE EASIEST FIGHT IN THE GAME, I APPLAUD YOU FOR THIS)")
                     cturn2 = False
                     cturn1 = True
                 continue
@@ -102,6 +104,8 @@ def encounter():
                 print("your attack failed!")
                 typing("You lost 1 health!")
                 player_health = player_health - 1
+                if player_health < 1:
+                    print("you lost the fight (HOW, THIS IS THE EASIEST FIGHT IN THE GAME, I APPLAUD YOU FOR THIS)")    
                 continue
         elif cturninp == "t":
             if speech < 3:
@@ -109,8 +113,7 @@ def encounter():
             else:
                 typing("it's a bloody hamster, it doesn't matter how charismatic you are, you don't speak in squeaks. (really, what did you expect? You're not a fucking wizard)\n")
         elif cturninp == "r":
-            print("a ring of squeaks follow you, and you peer back to see a very angry hamster rushing towards you at almost superhuman speeds. It looks like you are forced to take the fight.")
-        
+            print("a ring of squeaks follow you, and you peer back to see a very angry hamster rushing towards you at almost superhuman speeds. It looks like you are forced to take the fight.\n")
 
 encounter()
 def hit():
@@ -342,6 +345,14 @@ if l == "A" or "a":
                                 typing("Hit the bottom and escape\n")
                                 typing("Escape.\n")
                             case "1":
+                                encounter_loop = True
+                                while encounter_loop:
+                                    encounter_chance = random.choice([4, 3, 2, 1, 0])            
+                                    if encounter_chance == 4:
+                                        encounter()
+                                    else:
+                                        encounter_loop = False
+                                        
                                 typing("entering the art classroom...\n")
                                 print("within the arts classroom, there are multiple badly drawn posters, messy paintings and terrible cards adressed to now forgotten relatives and friends\n")
                                 typing("It is obvious that this classroom hasn't seen use in a long while\n")
@@ -368,6 +379,13 @@ if l == "A" or "a":
                                             print("Please input a valid response. Remember, they are case sensitive!")
                                     
                             case "2":
+                                while encounter_loop:
+                                    encounter_chance = random.choice([4, 3, 2, 1, 0])            
+                                    if encounter_chance == 4:
+                                        encounter()
+                                    else:
+                                        encounter_loop = False
+                                        
                                 typing("entering maths classroom...\n")
                                 if "class_ban2" in inventory:
                                     print("You shall not pass")
@@ -401,6 +419,12 @@ if l == "A" or "a":
                                         continue
 
                             case "3":
+                                while encounter_loop:
+                                    encounter_chance = random.choice([4, 3, 2, 1, 0])            
+                                    if encounter_chance == 4:
+                                        encounter()
+                                    else:
+                                        encounter_loop = False
                                 typing("entering the english classroom...")
                                 print("you enter, and see that they are reading shakespeare.")
                                 englishloop1 = True
@@ -416,9 +440,21 @@ if l == "A" or "a":
                                         print("Huh? I can't understand you.")
 
                             case "4":
+                                while encounter_loop:
+                                    encounter_chance = random.choice([4, 3, 2, 1, 0])            
+                                    if encounter_chance == 4:
+                                        encounter()
+                                    else:
+                                        encounter_loop = False
                                 typing("entering the the gymnasium ") # add a classroom
 
                             case "5":
+                                while encounter_loop:
+                                    encounter_chance = random.choice([4, 3, 2, 1, 0])            
+                                    if encounter_chance == 4:
+                                        encounter()
+                                    else:
+                                        encounter_loop = False
                                 typing("entering the lab") # once again, add a classroom
 
                             case "v":
