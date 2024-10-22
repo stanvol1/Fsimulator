@@ -1,11 +1,12 @@
 # Bosses
 - A level 10 boss of some type, maybe a demon father, who transformed after a freak accident 
 - Teacher boss, at the end of the school level (rfr)
+# Enemies
 # New UI ideas (example: health, defence etc)
 
 - inventory array including keys and quest items, not able to be sold haha 
 
-- Maybe include basic tier character building like Fallout? I propose: Strength, Speech and Luck as the only 3, have the player assign points at the start (rfr)
+- Maybe include basic tier character building like Fallout? I propose: Strength, Speech and Luck as the only 3, have the player assign points at the start 
   - Maybe add collectibles that increase said stats? (charms)
   - Include (special) actions that require a minimum stat requirement
 
