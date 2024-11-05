@@ -9,6 +9,9 @@ pygame.init()
 pygame.mixer.init()
 
 # functions
+def credit():
+    typing("code: stanvol and geigerbuzz")
+    typing("ideas: mainly geigerbuzz")
 def hall_monitor():
     global speech
     global coins
@@ -60,6 +63,110 @@ luck = 0
 defence = 0
 attack_damage = 0.75 * strength
 # Combat damage
+def bossfight():
+    global strength
+    global attack_damage
+    global defence
+    global teacher_health1
+    global teacher_health2
+    global teacher_loop1
+    global teacher_mace_input1
+    global teacher_mace_input1_rand
+    global teacher_mace_loop1
+    global teacher_turn
+    global player_health
+    
+    player_health = 50
+    strength = strength + 3
+    teacher_health1 = 50
+    teacher_health2 = 50
+    
+    def typing(text):
+        for char in text:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.15)
+    
+    typing("You found a mace on the floor. Next to it lies a note. On it is written the following\n")
+    typing("-this thing seems to be the only thing that can damage the teacher... OH FUCK HERE HE COMES AHHHHHHHH-\n")
+    
+    print("In front of you appears a door")
+    print("You seem drawn to it, and you lose control of your arm, which then moves towards it and open the door")
+    
+    typing("entering teacher's office\n")
+    typing("well well well, what have we got here\n")
+    
+    print("you are now in combat")
+    typing("the head teacher sees you, and begins to move towards you.\n")
+    
+    teacher_loop1 = True
+    teacher_turn = False
+    
+    while teacher_loop1:
+        print("you pick up the mace")
+        teacher_mace_loop1 = True
+        
+        while teacher_mace_loop1:
+            teacher_mace_input1 = input("Do you want to [a]ttack or [l]ose the shot, speaking is not an option (if your attack fails, you will take a small amount of damage, but if you lose the shot, you lose the chance to attack)")
+            
+            if teacher_mace_input1 == "a":
+                teacher_mace_input1_rand = random.choice([1, 0])
+                
+                if teacher_mace_input1_rand == 1:
+                    print("your attack failed! You take 3 damage")
+                    player_health -= 3
+                    
+                    if player_health < 1:
+                        print("You died (L). Hope you had fun!")
+                        typing("The fnuuy ending. Fnuuy :)\n")
+                        quit()
+                    
+                    teacher_turn = True
+                
+                elif teacher_mace_input1_rand == 0:
+                    print("Your attack did 7 damage! (-wow this mace is powerful- You think)")
+                    teacher_health1 -= 7
+                    teacher_turn = True
+                    if teacher_health1 < 1:
+                        print("You defeated the teacher!")
+                        typing("the good ending (MORE COMING SOON...)\n")
+
+                
+                teacher_mace_input1_loop = False
+                
+            elif teacher_mace_input1 == "l":
+                print("You lose the shot!")
+                print("It is the teacher's time to attack")
+                teacher_turn = True
+                teacher_mace_input1_loop = False
+            
+            else:
+                print("Please input a valid letter, remember, it's case sensitive!")
+
+            while teacher_turn:
+                print("it's the teacher's turn!")
+                teacher_rand = random.choice([1, 0])
+                
+                if teacher_rand == 1:
+                    print("the teacher takes a punch at you, hitting you for 3 damage!")  
+                    player_health = player_health - 3
+                    if player_health < 1:
+                        typing("oops, you died!\n")
+                        print("F")
+                        quit()
+                    else:
+                        teacher_turn = False
+
+                elif teacher_rand == 0:
+                    print("the teacher hits you for 5 damage (oof) your time now")
+                    player_health -= 5
+                    if player_health < 1:
+                        print("ah, you died, better luck next time!")
+                        quit
+                    else: 
+                        teacher_turn = False
+                        teacher_mace_input1_loop = True
+            
 def encounter():
     def typing(text):
         for char in text:
@@ -95,6 +202,8 @@ def encounter():
                     player_health = player_health - 1
                     print("chomik did 1 damage")
                     print("You now have " + str(player_health))
+                    if player_health < 1:
+                        print("you lost the fight (HOW, THIS IS THE EASIEST FIGHT IN THE GAME, I APPLAUD YOU FOR THIS)")
                     cturn2 = False
                     cturn1 = True
                 continue
@@ -102,6 +211,8 @@ def encounter():
                 print("your attack failed!")
                 typing("You lost 1 health!")
                 player_health = player_health - 1
+                if player_health < 1:
+                    print("you lost the fight (HOW, THIS IS THE EASIEST FIGHT IN THE GAME, I APPLAUD YOU FOR THIS)")    
                 continue
         elif cturninp == "t":
             if speech < 3:
@@ -109,10 +220,8 @@ def encounter():
             else:
                 typing("it's a bloody hamster, it doesn't matter how charismatic you are, you don't speak in squeaks. (really, what did you expect? You're not a fucking wizard)\n")
         elif cturninp == "r":
-            print("a ring of squeaks follow you, and you peer back to see a very angry hamster rushing towards you at almost superhuman speeds. It looks like you are forced to take the fight.")
-        
+            print("a ring of squeaks follow you, and you peer back to see a very angry hamster rushing towards you at almost superhuman speeds. It looks like you are forced to take the fight.\n")
 
-encounter()
 def hit():
     global damage
     global health
@@ -332,16 +441,24 @@ if l == "A" or "a":
                     print("You arrive at a corridor")
                     doors_loop = True
                     while doors_loop:
-                        doors = input("There are five doors, you now may choose which one to enter. There is also a vending machine, costing 5 coins, which you can search through by inputting [v]. To enter a door, input a number from 1 - 5\n")
+                        doors = input("There are four doors, you now may choose which one to enter. To enter a door, input a number from 1 - 4 There is also the head teacher's office, but this requires a code to access. Maybe you can find it in a classroom? Access it with h\n")
                         match doors:
                             case "Darkmoon":
-                                print("")
-                            case "InTheRainbows":
+                                coins = 1000
+                            case "InRainbows":
                                 typing("Yeah, I\n")
                                 typing("I hit the bottom\n")
                                 typing("Hit the bottom and escape\n")
                                 typing("Escape.\n")
                             case "1":
+                                encounter_loop = True
+                                while encounter_loop:
+                                    encounter_chance = random.choice([4, 3, 2, 1, 0])            
+                                    if encounter_chance == 4:
+                                        encounter()
+                                    else:
+                                        encounter_loop = False
+                                        
                                 typing("entering the art classroom...\n")
                                 print("within the arts classroom, there are multiple badly drawn posters, messy paintings and terrible cards adressed to now forgotten relatives and friends\n")
                                 typing("It is obvious that this classroom hasn't seen use in a long while\n")
@@ -356,11 +473,12 @@ if l == "A" or "a":
                                         case "de":
                                             typing("Searching desks...\n")
                                             print("You found... Textbook!")
+                                            print("inside it, you find the number 7")
                                             inventory.append("textbook")
                                         case "b":
                                             typing("Searching box...")
-                                            print("You found: Safety scissors! ")
-                                            typing("these give you +7 damage, but they only have 5 uses")
+                                            print("You found: Safety scissors!\n")
+                                            typing("these give you +7 damage, but they only have 5 uses\n")
                                             inventory.append("scissors")
                                         case "back":
                                             break
@@ -368,6 +486,13 @@ if l == "A" or "a":
                                             print("Please input a valid response. Remember, they are case sensitive!")
                                     
                             case "2":
+                                while encounter_loop:
+                                    encounter_chance = random.choice([4, 3, 2, 1, 0])            
+                                    if encounter_chance == 4:
+                                        encounter()
+                                    else:
+                                        encounter_loop = False
+                                        
                                 typing("entering maths classroom...\n")
                                 if "class_ban2" in inventory:
                                     print("You shall not pass")
@@ -378,7 +503,7 @@ if l == "A" or "a":
                                         print("You step inside the classroom")
                                         print("-Come on, sit down, or you will be punished-  ")
                                         print("You choose a seat next to a strange but kind looking student. They ask you something")
-                                        typing("-Want to see something?-")
+                                        typing("-Want to see something?-\n")
                                         print("sure")
                                         print("I have balloons filled with coloured paint. This school hasn't had any sort of colour within it for centuries.")
                                         print("Can you throw it?")
@@ -386,14 +511,15 @@ if l == "A" or "a":
                                         match maths_classroom_question:
                                             case "y":
                                                 print("Great, throw it!")
-                                                typing("You throw the balloons, they burst all over the classroom...")
+                                                typing("You throw the balloons, they burst all over the classroom...\n")
                                                 print("This awakens something within the students")
                                                 print("They riot, breaking windows, vandilizing walls and perform all sorts of strange actions, taking full advantage of their new found freedom")
                                                 print("You see something fall. It's a brick")
                                                 print("Item gained! Another brick in the wall.")
+                                                print("I'll tell you another secret. It's the number 6")
                                             case "n": 
                                                 print("I expected better from you...")
-                                                typing("You leave the classroom, banished for the entirety of the run")
+                                                typing("You leave the classroom, banished for the entirety of the run\n")
                                                 inventory.append("class_ban2")
                                         # I will play another brick in the wall here
                                     else:
@@ -401,79 +527,105 @@ if l == "A" or "a":
                                         continue
 
                             case "3":
-                                typing("entering the english classroom...")
+                                while encounter_loop:
+                                    encounter_chance = random.choice([4, 3, 2, 1, 0])            
+                                    if encounter_chance == 4:
+                                        encounter()
+                                    else:
+                                        encounter_loop = False
+                                typing("entering the english classroom...\n")
                                 print("you enter, and see that they are reading shakespeare.")
                                 englishloop1 = True
                                 while englishloop1:
                                     english_question = input("The teacher asks -have you got your book?- ([y]es or [n]o) ")
                                     if english_question.lower == "y":
                                         print("come in then!")
+                                        print("the teacher has written a massive number on the board. Weird, you think. It's the number 0")
+                                        print("the students begin to look at you strangely, almost robotically, and that's when you realise they aren't alive...")
+                                        print("You scream and quickly run out of the classroom")
                                         break
                                     elif english_question.lower == "n":
                                         print("well, I suppose you may come in and listen, but don't distract anyone")
+                                        print("the teacher has written a massive number on the board. Weird, you think. It's the number 0")
+                                        print("the students begin to look at you strangely, almost robotically, and that's when you realise they aren't alive...")
+                                        print("You scream and quickly run out of the classroom")
                                         break
                                     else:
                                         print("Huh? I can't understand you.")
 
                             case "4":
-                                typing("entering the the gymnasium ") # add a classroom
-
-                            case "5":
-                                typing("entering the lab") # once again, add a classroom
-
-                            case "v":
-                                if luck <= 2:
-                                    if coins > 4:
-                                        vendingchance = random.choice(vending_machine)
-                                        typing("You found: \n" + vendingchance + "\n")
-                                        vending_machine.remove(vendingchance)
-                                        inventory.append(vendingchance) # adds item to inventory
-                                        print("The locker may have the following items: ")
-                                        for lockeritems in vending_machine:
-                                            print(vending_machine)
-                                        match vendingchance:
-                                            case "CD ninja star":
-                                                print("When used, this does 3 damage!")
-                                                damage = damage + 3
-                                            case "safety scissors":
-                                                print("when used, this does 6 damage!")
-                                                damage = damage + 6
-                                            case "trail mix with raisins":
-                                                print("when used, this heals you for 10 hitpoints!")
-                                                trailmixuses = 1
-                                            case "Nifty sunglasses":
-                                                print("These add to your speach stat by 1!")
-                                                print("Press e to equip them!")
-                                                if keyboard.is_pressed("e"):
-                                                    print("You equipped nifty sunglasses!")
-                                                    speech = speech + 1
-
+                                while encounter_loop:
+                                    encounter_chance = random.choice([4, 3, 2, 1, 0])            
+                                    if encounter_chance == 4:
+                                        encounter()
                                     else:
-                                        print("Come back when you have at least 5 coins!")
-                                        break
-                                elif luck > 2:
-                                    if coins > 4:
-                                        chance = 0.10
-                                        multiply = luck
-                                        trailmixchance = luck * chance
-                                        items = ['trailmix', 'sunglasses', 'cd', 'scissors']
-                                        weights = [trailmixchance, 0.3, 0.4, 0.2]
-                                        chosen_item = random.choices(items, weights=weights, k=1)[0]
-                                        match chosen_item:
-                                            case "trailmix":
-                                                trailmixuses = 1
-                                                typing("You found a trail mix with raisins!\n")
-                                                print("This item can be used to heal 10 health 1 time.")
-                                            case "cd":
-                                                typing("You found the CD ninja star!")
-                                                print("This can be used once to deal 3 damage!")
-                                            case "scissors":
-                                                print(test)
-                                            case "sunglasses":
-                                                print(test)
-                                    else:
-                                        print("Come back when you have at least 5 coins!")
-                                        break
+                                        encounter_loop = False
+                                typing("entering the the gymnasium \n") # add a classroom
+                                print("You go in, but it seems abandoned")
+                                print("You see nothing except the number 4 on the wall")
+                                continue
+                            case "h":
+                                code_input = input("Please input the code")
+                                if code_input == 7604:
+                                    print("Well done, you got the right code! The door opens and you step into the light")
+                                    bossfight()
+                                else:
+                                    print("That's the wrong code! Try and find it again or input an integer. Tip, the code is in the order of the rooms")
+
+
+                            # case "v":
+                            #     if luck <= 2:
+                            #         if coins > 4:
+                            #             vendingchance = random.choice(vending_machine)
+                            #             typing("You found: \n" + vendingchance + "\n")
+                            #             vending_machine.remove(vendingchance)
+                            #             inventory.append(vendingchance) # adds item to inventory
+                            #             print("The locker may have the following items: ")
+                            #             for lockeritems in vending_machine:
+                            #                 print(vending_machine)
+                            #             match vendingchance:
+                            #                 case "CD ninja star":
+                            #                     print("When used, this does 3 damage!")
+                            #                     damage = damage + 3
+                            #                 case "safety scissors":
+                            #                     print("when used, this does 6 damage!")
+                            #                     damage = damage + 6
+                            #                 case "trail mix with raisins":
+                            #                     print("when used, this heals you for 10 hitpoints!")
+                            #                     trailmixuses = 1
+                            #                 case "Nifty sunglasses":
+                            #                     print("These add to your speach stat by 1!")
+                            #                     print("Press e to equip them!")
+                            #                     if keyboard.is_pressed("e"):
+                            #                         print("You equipped nifty sunglasses!")
+                            #                         speech = speech + 1
+
+                                    # else:
+                                    #     print("Come back when you have at least 5 coins!")
+                                    #     break
+                                # elif luck > 2:
+                                #     if coins > 4:
+                                #         chance = 0.10
+                                #         multiply = luck
+                                #         trailmixchance = luck * chance
+                                #         items = ['trailmix', 'sunglasses', 'cd', 'scissors']
+                                #         weights = [trailmixchance, 0.3, 0.4, 0.2]
+                                #         chosen_item = random.choices(items, weights=weights, k=1)[0]
+                                #         match chosen_item:
+                                #             case "trailmix":
+                                #                 trailmixuses = 1
+                                #                 typing("You found a trail mix with raisins!\n")
+                                #                 print("This item can be used to heal 10 health 1 time.")
+                                #             case "cd":
+                                #                 typing("You found the CD ninja star\n!")
+                                #                 print("This can be used once to deal 3 damage!")
+                                #             case "scissors":
+                                #                 print(test)
+                                #             case "sunglasses":
+                                #                 print(test)
+                                #     else:
+                                #         print("Come back when you have at least 5 coins!")
+                                #         break
 
             if choice == "b":
                 print("This is a work in progress, at the moment this cannot be played, as we spent all of our non-existant budget on the vents. This will be completed at some point later")
@@ -496,6 +648,6 @@ if l == "A" or "a":
             # this will need another story, with different situations leading to a feature that we want to implement, but a different item should be added to the players inventory first
 if l.lower() == "b":
     print("this is a work in progress, this game needs a lot of work done to it before we can actually start on this level, although in the future, this will be an arcade level")
-    typing("at the moment, you will be sent to the only working level, the School.")
+    typing("at the moment, you will be sent to the only working level, the School.\n")
     # print("Well done! You picked the right answer. You will now be rewarded with 5 coins!")
     # coins = coins + 5
