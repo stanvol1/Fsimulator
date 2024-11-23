@@ -254,32 +254,28 @@ def typing(text):
         for char in text:
             sys.stdout.write(char)
             sys.stdout.flush()
-            time.sleep(0.30)
+            time.sleep(0.14)
             # now, if you want to make a typewriter effect in any place within the code, just write typing("") instead of print("") don't forget to add a \n at the end though.
+typing("FATHER SIMULATOR\n")
 menuloop = True
-while menuloop:
-    typing("FATHER SIMULATOR\n")
+while menuloop: 
     print("the place where your father is digitalised")
     print("Main menu: ")
-    startmenu = input("[Continue]   [New game]\n")
-    match startmenu:
-        case "Continue":
-            print(test)
-            # add ids and identifiers for progress etc
-            menuloop = False
-            break
-        case "New game":
-            menuloop = False
-            break
-        case _:
-            print("Please input a valid word (either Continue or New game). Remember, it is case sensitive!")
-
+    startmenu = input("[Continue]   [New game]\n").strip().lower()
+    if startmenu.lower() == "continue":
+        print(test)
+        # add ids and identifiers for progress etc
+        menuloop = False
+    elif startmenu.lower() == "new game":
+        menuloop = False
+    else:
+        print("Please input a valid response")
 #  need a points system here, giving a set amount of points that can be used, im thinking of storing it in a variable
 
 
 print("Welcome to level 0. This is an easy level. Here, there is no way to alter how the game ends. Good luck!")
 print("")
-print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
+print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die ")
 print("")
 input_traits = True
 while input_traits:
