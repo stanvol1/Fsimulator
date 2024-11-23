@@ -1,13 +1,8 @@
-
 import time
 import sys
 import threading
 import random
-import pygame
 import keyboard
-pygame.init()
-pygame.mixer.init()
-
 # functions
 def credit():
     typing("code: stanvol and geigerbuzz")
@@ -41,12 +36,11 @@ def hall_monitor():
         print("You have 2 coins or more, you can buy your way out of this")
 
 # sounds using pygame
-brickinwall = pygame.mixer.Sound("5959375254061056.mp3")
+
 
 # general vars
 ventsloop = True
 test = "I can't be bothered to put anything in here yet"
-coins = 1000000
 health = 10
 score = 0
 reputation = 0
@@ -85,7 +79,7 @@ def bossfight():
         for char in text:
             sys.stdout.write(char)
             sys.stdout.flush()
-            time.sleep(0.15)
+            time.sleep(0.30)
     
     typing("You found a mace on the floor. Next to it lies a note. On it is written the following\n")
     typing("-this thing seems to be the only thing that can damage the teacher... OH FUCK HERE HE COMES AHHHHHHHH-\n")
@@ -260,7 +254,7 @@ def typing(text):
         for char in text:
             sys.stdout.write(char)
             sys.stdout.flush()
-            time.sleep(0.15)
+            time.sleep(0.30)
             # now, if you want to make a typewriter effect in any place within the code, just write typing("") instead of print("") don't forget to add a \n at the end though.
 menuloop = True
 while menuloop:
@@ -270,7 +264,7 @@ while menuloop:
     startmenu = input("[Continue]   [New game]\n")
     match startmenu:
         case "Continue":
-            print("")
+            print(test)
             # add ids and identifiers for progress etc
             menuloop = False
             break
@@ -284,7 +278,9 @@ while menuloop:
 
 
 print("Welcome to level 0. This is an easy level. Here, there is no way to alter how the game ends. Good luck!")
+print("")
 print("Welcome to father simulator, where all the decisions fathers make have been digitalised! For each right answer, you will gain a point, but if you chose wrong, your health will deplete. You start off with 10 health, and if it runs out, you will die (this happens at the very end of the playthrough)")
+print("")
 input_traits = True
 while input_traits:
     print("This is the character creator. Here, you assign your skills. The total sum of the skills must add up to 7.")
@@ -370,7 +366,7 @@ score = 0
 
 print("This is the first proper level. Here, you will be tested to see if you have what it takes to face the wrath of the almighty Father.")
 time.sleep(1)
-print("this time, one wrong answer subtracts 5 health instead of 2, but you get 2 points instead of 1 per correct answer. Your initial health bar will look like this ----------")
+print("this time, one wrong answer subtracts 5 health instead of 2, but you get 2 points instead of 1 per correct answer.")
 time.sleep(1)
 print("you now also have an extra stat, defence. This stat can be boosted through armor or levels. Every level from this point onwards will increase your defence by 1")
 print("+1 defence")
@@ -499,7 +495,6 @@ if l == "A" or "a":
                                 else:
                                     if "textbook" in inventory:
                                         print("Come in")
-                                        brickinwall.play()
                                         print("You step inside the classroom")
                                         print("-Come on, sit down, or you will be punished-  ")
                                         print("You choose a seat next to a strange but kind looking student. They ask you something")
